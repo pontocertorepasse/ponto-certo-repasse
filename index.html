@@ -8,115 +8,92 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #000000, #1a1a1a);
+      background: #000;
       color: white;
-      text-align: center;
+      font-family: Arial, sans-serif;
     }
-
+    header {
+      text-align: center;
+      padding: 20px;
+    }
     header img {
       max-width: 220px;
-      margin-top: 30px;
+      animation: pulse 2s infinite;
     }
-
     h1 {
-      font-size: 2em;
-      margin-top: 20px;
+      font-size: 2rem;
+      margin-bottom: 0;
     }
-
-    .subtexto {
-      font-size: 1.1em;
-      margin-top: 10px;
-      color: #ddd;
-    }
-
-    .cbrav {
+    .descricao {
+      font-size: 1.1rem;
       margin: 10px 0;
+    }
+    .logo-cbrav {
       height: 40px;
       vertical-align: middle;
     }
-
-    .button {
-      display: inline-block;
-      padding: 14px 28px;
-      margin: 12px;
-      font-size: 1em;
+    .btn {
+      display: block;
+      width: 80%;
+      max-width: 300px;
+      margin: 15px auto;
+      padding: 15px;
+      text-align: center;
+      border-radius: 8px;
       font-weight: bold;
-      border: none;
-      border-radius: 10px;
-      transition: all 0.3s ease;
-      cursor: pointer;
       text-decoration: none;
-    }
-
-    .whatsapp {
-      background-color: #FFCC00;
-      color: #000;
-    }
-
-    .whatsapp:hover {
-      background-color: #e6b800;
-      transform: scale(1.05);
-    }
-
-    .vip {
-      background-color: transparent;
-      border: 2px solid #FFCC00;
-      color: #FFCC00;
-    }
-
-    .vip:hover {
-      background-color: #FFCC00;
-      color: #000;
-      transform: scale(1.05);
-    }
-
-    .aviso {
-      font-size: 0.9em;
-      margin-top: 20px;
-      color: #aaa;
-    }
-
-    .aviso a {
-      color: #FFCC00;
-      text-decoration: underline;
-    }
-
-    section {
-      margin: 40px 20px;
-    }
-
-    .beneficios {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .beneficio {
-      border: 1px solid #FFCC00;
-      border-radius: 15px;
-      padding: 20px;
-      margin: 20px 0;
-      background-color: #111;
       transition: transform 0.3s ease;
     }
-
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    .btn-yellow {
+      background: #FFD700;
+      color: #000;
+    }
+    .btn-outline {
+      border: 2px solid #FFD700;
+      color: #FFD700;
+      background: transparent;
+    }
+    .aviso {
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 20px;
+      padding: 0 20px;
+    }
+    .aviso a {
+      color: #1E90FF;
+      text-decoration: none;
+    }
+    section {
+      padding: 30px 15px;
+      background: #111;
+    }
+    .beneficios {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .beneficio {
+      border: 1px solid #FFD700;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 15px 0;
+      text-align: center;
+      background: #000;
+      transition: transform 0.3s ease;
+    }
     .beneficio:hover {
-      transform: scale(1.03);
-      background-color: #1c1c1c;
+      transform: translateY(-5px);
     }
-
     .beneficio img {
-      height: 48px;
-      margin-bottom: 12px;
+      height: 40px;
+      margin-bottom: 10px;
     }
-
-    .beneficio h3 {
-      margin: 0 0 10px;
-    }
-
-    .beneficio p {
-      margin: 0;
-      color: #ccc;
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
     }
   </style>
 </head>
@@ -124,31 +101,33 @@
   <header>
     <img src="logo_ponto_certo.png" alt="Logo Ponto Certo" />
     <h1>Seu Repasse é Aqui!</h1>
-    <p class="subtexto">Realizando excelentes negócios desde 2016.<br>Empresa verificada pela <img src="logo_cbrav.png" alt="CBRAV" class="cbrav" /></p>
-    <a href="https://wa.me/SEUNUMERO" class="button whatsapp">Fale no WhatsApp</a>
-    <a href="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t" class="button vip">Entrar no Grupo VIP</a>
+    <p class="descricao">Realizando excelentes negócios desde 2016.<br>Empresa verificada pela <img src="logo_cbrav.png" alt="CBRAV" class="logo-cbrav" /></p>
+    <a href="https://wa.me/SEUNUMERO" class="btn btn-yellow">Fale no WhatsApp</a>
+    <a href="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t" class="btn btn-outline">Entrar no Grupo VIP</a>
     <p class="aviso">Exclusivo para lojistas e investidores. Ao entrar, você declara ter lido e concordado com os <a href="#termos">Termos do Repasse</a>.</p>
   </header>
 
-  <section class="beneficios">
-    <h2>Benefícios do Grupo VIP</h2>
+  <section>
+    <div class="beneficios">
+      <h2 style="text-align:center;">Benefícios do Grupo VIP</h2>
 
-    <div class="beneficio">
-      <img src="oferta.png" alt="Ofertas" />
-      <h3>Ofertas Exclusivas</h3>
-      <p>Receba ofertas únicas que não estão em nenhum outro lugar.</p>
-    </div>
+      <div class="beneficio">
+        <img src="oferta.png" alt="Ofertas Exclusivas" />
+        <h3>Ofertas Exclusivas</h3>
+        <p>Receba ofertas únicas que não estão em nenhum outro lugar.</p>
+      </div>
 
-    <div class="beneficio">
-      <img src="assessoria.png" alt="Assessoria" />
-      <h3>Assessoria Completa</h3>
-      <p>Documentação, vistoria e segurança em todo processo.</p>
-    </div>
+      <div class="beneficio">
+        <img src="assessoria.png" alt="Assessoria Completa" />
+        <h3>Assessoria Completa</h3>
+        <p>Documentação, vistoria e segurança em todo processo.</p>
+      </div>
 
-    <div class="beneficio">
-      <img src="negociacao.png" alt="Negociação" />
-      <h3>Negociações Rápidas</h3>
-      <p>Fale direto com quem vende e acelere seus negócios.</p>
+      <div class="beneficio">
+        <img src="negociacao.png" alt="Negociações Rápidas" />
+        <h3>Negociações Rápidas</h3>
+        <p>Fale direto com quem vende e acelere seus negócios.</p>
+      </div>
     </div>
   </section>
 </body>
