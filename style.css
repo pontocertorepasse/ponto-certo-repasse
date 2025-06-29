@@ -1,66 +1,80 @@
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #000;
-  color: #fff;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #000;
+    color: #fff;
 }
 .hero {
-  text-align: center;
-  padding: 2rem;
-  background: linear-gradient(to right, #000, #222);
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(to bottom, #000000, #1a1a1a);
 }
 .logo {
-  max-width: 160px;
-  margin-bottom: 1rem;
+    max-width: 180px;
+    margin-bottom: 20px;
 }
-.selo {
-  width: 80px;
-  vertical-align: middle;
+.selo-cbrav {
+    max-height: 50px;
+    vertical-align: middle;
 }
-.btn, .btn-secondary {
-  display: inline-block;
-  padding: 1rem 2rem;
-  margin: 1rem;
-  background: #FFD700;
-  color: #000;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
+.botoes {
+    margin-top: 20px;
 }
-.btn-secondary {
-  background: transparent;
-  border: 2px solid #FFD700;
-  color: #FFD700;
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.btn.amarelo {
+    background: #ffcc00;
+    color: #000;
+}
+.btn.transparente {
+    border: 2px solid #ffcc00;
+    color: #ffcc00;
+}
+.btn:hover {
+    transform: scale(1.05);
 }
 .aviso {
-  font-size: 0.9rem;
-  color: #ccc;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #ccc;
 }
-.benefits {
-  padding: 3rem 1rem;
-  background-color: #111;
+.beneficios {
+    padding: 40px 20px;
 }
 .cards {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 .card {
-  background: #222;
-  padding: 1.5rem;
-  border-radius: 10px;
-  border: 1px solid #FFD700;
-  text-align: center;
+    background: #111;
+    border: 1px solid #ffcc00;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
 }
 .card img {
-  width: 50px;
-  margin-bottom: 0.5rem;
+    max-height: 50px;
+    margin-bottom: 10px;
 }
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #111;
-  font-size: 0.8rem;
-  color: #888;
+.card h3 {
+    margin: 10px 0 5px;
+    color: #fff;
+}
+.card p {
+    color: #ccc;
+}
+@media(min-width: 768px){
+    .cards {
+        flex-direction: row;
+        justify-content: center;
+    }
 }
