@@ -9,8 +9,13 @@
     body{margin:0;font-family:Arial,sans-serif;background:#000;color:#fff;text-align:center}
     .logo{margin-top:20px;width:200px;animation:pulse 2s infinite}
     .descricao{font-style:italic;color:#ccc;font-size:1.1em}
-    .btn{display:block;width:250px;margin:10px auto;padding:15px 25px;border-radius:8px;font-size:1em;font-weight:bold;text-decoration:none;background:#000;color:#FFD700;border:2px solid #FFD700;transition:.3s}
+    .btn{
+        display:block;width:260px;margin:12px auto;padding:15px 25px;
+        border-radius:8px;font-size:1em;font-weight:bold;text-decoration:none;
+        background:#000;color:#FFD700;border:2px solid #FFD700;
+        transition:.3s}
     .btn:hover{background:#FFD700;color:#000;transform:scale(1.05)}
+    .btn img{height:18px;vertical-align:middle;margin-right:8px}
     .aviso{font-size:.9rem;margin-top:10px;padding:0 20px;color:#aaa}
     .aviso a{color:#FFD700;text-decoration:underline}
     .section{padding:40px 20px;background:#111;border-top:1px solid #444}
@@ -20,20 +25,34 @@
   </style>
 </head>
 <body>
-  <img src="logo_ponto_certo.png" alt="Logo Ponto Certo" class="logo"/>
+  <img src="logo_ponto_certo.png" alt="Logo Ponto Certo" class="logo" />
   <p class="descricao">Conectando oportunidades, movendo negócios.</p>
 
+  <!-- Botão CBRAV -->
   <a href="https://www.cbrav.com.br/pontocerto" target="_blank"
-     style="display:inline-flex;align-items:center;gap:10px;padding:10px 22px;border:1px solid #FFD700;border-radius:12px;text-decoration:none;color:#fff;transition:.25s;">
+     style="display:inline-flex;align-items:center;gap:10px;padding:10px 22px;border:1px solid #FFD700;
+            border-radius:12px;text-decoration:none;color:#fff;transition:.25s;">
     <span style="font-weight:bold;">Empresa verificada pela CBRAV</span>
     <img src="logo_cbrav.png" alt="Selo CBRAV" style="height:40px;width:auto"/>
   </a>
 
-  <a href="https://wa.me/5521969917328" class="btn">Fale Conosco</a>
-  <a href="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t" class="btn">Entrar no Grupo VIP</a>
+  <!-- Espaço extra -->
+  <div style="height:30px;"></div>
 
-  <p class="aviso">Exclusivo para lojistas e investidores. Ao entrar, você declara ter lido e concordado com os
-    <a href="termo_repasse_site.html" target="_blank">Termos do Repasse</a>.</p>
+  <!-- Botões de contato -->
+  <a href="https://wa.me/5521969917328" class="btn">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="Whatsapp Icon">
+    Fale Conosco
+  </a>
+  <a href="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t" class="btn">
+    <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="Grupo Icon">
+    Entrar no Grupo VIP
+  </a>
+
+  <p class="aviso">
+    Exclusivo para lojistas e investidores. Ao entrar, você declara ter lido e concordado com os
+    <a href="termo_repasse_site.html" target="_blank">Termos do Repasse</a>.
+  </p>
 
   <div class="section">
     <h2>Benefícios do Grupo VIP</h2>
