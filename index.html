@@ -16,54 +16,28 @@
     .logo {
       margin-top: 20px;
       width: 200px;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-    .title {
-      font-size: 2em;
-      margin-top: 10px;
+      animation: pulse 2s infinite;
     }
     .descricao {
       font-style: italic;
       color: #ccc;
       font-size: 1.1em;
     }
-    .verificada {
-      display: inline-block;
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      padding: 10px 20px;
-      margin-top: 15px;
-      font-size: 1em;
-    }
-    .logo-cbrav {
-      height: 40px;
-      vertical-align: middle;
-      margin-left: 8px;
-    }
     .btn {
-      display: inline-block;
+      display: block;
+      width: 250px;
+      margin: 10px auto;
       padding: 15px 25px;
-      margin: 20px 10px;
       border-radius: 8px;
       font-size: 1em;
       font-weight: bold;
       text-decoration: none;
+      background-color: black;
+      color: #FFD700;
+      border: 2px solid #FFD700;
       transition: transform 0.3s ease, background-color 0.3s ease;
     }
-    .btn-yellow {
-      background-color: #FFD700;
-      color: #000;
-    }
-    .btn-yellow:hover {
-      background-color: #ffc400;
-      transform: scale(1.05);
-    }
-    .btn-outline {
-      border: 1px solid #ccc;
-      color: #FFD700;
-      background: transparent;
-    }
-    .btn-outline:hover {
+    .btn:hover {
       background-color: #FFD700;
       color: black;
       transform: scale(1.05);
@@ -75,7 +49,7 @@
       color: #aaa;
     }
     .aviso a {
-      color: #1E90FF;
+      color: #FFD700;
       text-decoration: underline;
     }
     .section {
@@ -95,46 +69,26 @@
       width: 60px;
       margin-bottom: 10px;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  
-    .pulse {
-      animation: pulse 2s infinite;
-    }
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.03); }
       100% { transform: scale(1); }
     }
-    .btn-group {
-      background-color: black;
-      color: #FFD700;
-      border: 2px solid #FFD700;
-      margin: 10px auto; display: block;
-    }
-    .btn-group:hover {
-      background-color: #FFD700;
-      color: black;
-      transform: scale(1.05);
-    }
-    </style>
+  </style>
 </head>
 <body>
-  <img src="logo_ponto_certo.png" alt="Logo Ponto Certo" class="logo pulse" />
+  <img src="logo_ponto_certo.png" alt="Logo Ponto Certo" class="logo" />
   <p class="descricao">Conectando oportunidades, movendo negócios.</p>
-  <a href="https://www.cbrav.com.br/pontocerto" target="_blank" class="verificada" style="display:inline-block; text-decoration: none; color: inherit;">
-    Empresa verificada pela CBRAV
-    <a href="https://www.cbrav.com.br/pontocerto" target="_blank">
-      <img src="logo_cbrav.png" alt="CBRAV" class="logo-cbrav" />
-    </a>
+
+  <a href="https://www.cbrav.com.br/pontocerto" target="_blank"
+     style="display:inline-flex; align-items:center; gap:10px; padding:10px 22px; border:1px solid #FFD700;
+            border-radius:12px; text-decoration:none; color:#FFD700; transition:.25s;">
+    <span style="font-weight:bold;">Empresa verificada pela CBRAV</span>
+    <img src="logo_cbrav.png" alt="Selo CBRAV" style="height:40px; width:auto;" />
   </a>
 
-  <div style="margin-top: 30px;">
-    <a href="https://wa.me/5521969917328" class="btn btn-group">Fale Conosco</a>
-    <a href="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t" class="btn btn-group">Entrar no Grupo VIP</a>
-  </div>
+  <a href="https://wa.me/5521969917328" class="btn">Fale Conosco</a>
+  <a href="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t" class="btn">Entrar no Grupo VIP</a>
 
   <p class="aviso">
     Exclusivo para lojistas e investidores. Ao entrar, você declara ter lido e concordado com os
