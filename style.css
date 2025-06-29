@@ -1,32 +1,47 @@
 
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background: #f8f8f8;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8f9fa;
   color: #333;
 }
 header {
-  background: #ffcc00;
-  color: #000;
+  background: #ffcb05;
+  padding: 2rem;
   text-align: center;
-  padding: 2rem 1rem;
+}
+.logo {
+  width: 120px;
+  margin-bottom: 1rem;
+}
+h1 {
+  font-size: 2rem;
+  margin: 0.5rem 0;
 }
 .btn-whatsapp {
-  display: inline-block;
   background: #25D366;
   color: #fff;
-  padding: 10px 20px;
+  padding: 0.75rem 1.5rem;
   text-decoration: none;
   border-radius: 5px;
+  display: inline-block;
   margin-top: 1rem;
 }
-main {
-  padding: 2rem;
+section {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 footer {
   background: #222;
   color: #fff;
   text-align: center;
   padding: 1rem;
+}
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
