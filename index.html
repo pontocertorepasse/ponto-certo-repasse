@@ -22,37 +22,60 @@
       font-size: 2em;
       margin-top: 10px;
     }
-    .subtitle {
-      font-size: 1.2em;
-      margin: 5px 0;
+    .descricao {
+      font-style: italic;
+      color: #ccc;
+      font-size: 1.1em;
     }
-    .highlight {
-      font-weight: bold;
-      color: #FFD700;
+    .verificada {
+      display: inline-block;
+      border: 2px solid #FFD700;
+      border-radius: 12px;
+      padding: 10px 20px;
+      margin-top: 15px;
+      font-size: 1em;
     }
     .logo-cbrav {
-      width: 100px;
+      height: 40px;
       vertical-align: middle;
-      margin-left: 10px;
+      margin-left: 8px;
     }
     .btn {
       display: inline-block;
-      background-color: #FFD700;
-      color: black;
       padding: 15px 25px;
       margin: 20px 10px;
-      border: none;
       border-radius: 8px;
       font-size: 1em;
+      font-weight: bold;
       text-decoration: none;
       transition: transform 0.3s ease, background-color 0.3s ease;
     }
-    .btn:hover {
+    .btn-yellow {
+      background-color: #FFD700;
+      color: #000;
+    }
+    .btn-yellow:hover {
       background-color: #ffc400;
       transform: scale(1.05);
     }
-    .link-termo {
-      color: #6495ED;
+    .btn-outline {
+      border: 2px solid #FFD700;
+      color: #FFD700;
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background-color: #FFD700;
+      color: black;
+      transform: scale(1.05);
+    }
+    .aviso {
+      font-size: 0.9rem;
+      margin-top: 10px;
+      padding: 0 20px;
+      color: #aaa;
+    }
+    .aviso a {
+      color: #1E90FF;
       text-decoration: underline;
     }
     .section {
@@ -80,14 +103,22 @@
 </head>
 <body>
   <img src="logo_ponto_certo.png" alt="Logo Ponto Certo" class="logo" />
-  <h1 class="title">Seu Repasse é Aqui!</h1>
-  <p class="subtitle" style="font-style: italic; color: #ccc;">Conectando oportunidades, movendo negócios.</p>
-  <p class="subtitle highlight">Empresa verificada pela <img src="logo_cbrav.png" alt="CBRAV" class="logo-cbrav" /></p>
-  <a href="https://wa.me/5521969917328" class="btn">Fale Conosco</a>
-  <a href="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t" class="btn">Entrar no Grupo VIP</a>
-  <p class="subtitle" style="margin-top: 30px; font-size: 0.9em;">
+  <p class="descricao">Conectando oportunidades, movendo negócios.</p>
+  <div class="verificada">
+    Empresa verificada pela CBRAV
+    <a href="https://www.cbrav.com.br/pontocerto" target="_blank">
+      <img src="logo_cbrav.png" alt="CBRAV" class="logo-cbrav" />
+    </a>
+  </div>
+
+  <div>
+    <a href="https://wa.me/5521969917328" class="btn btn-yellow">Fale Conosco</a>
+    <a href="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t" class="btn btn-outline">Entrar no Grupo VIP</a>
+  </div>
+
+  <p class="aviso">
     Exclusivo para lojistas e investidores. Ao entrar, você declara ter lido e concordado com os
-    <a href="#termos" class="link-termo">Termos do Repasse</a>.
+    <a href="termo_repasse_site.html" target="_blank">Termos do Repasse</a>.
   </p>
 
   <div class="section">
@@ -107,11 +138,6 @@
       <h3>Negociações Rápidas</h3>
       <p>Fale direto com quem vende e acelere seus negócios.</p>
     </div>
-  </div>
-
-  <div class="section" id="termos">
-    <h2>Termos do Repasse</h2>
-    <iframe src="termo_repasse_site.html" width="90%" height="500px" style="border: none; background: white;"></iframe>
   </div>
 </body>
 </html>
