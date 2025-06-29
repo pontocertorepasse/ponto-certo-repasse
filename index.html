@@ -5,49 +5,150 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ponto Certo Repasse</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
-    .selo {
-      max-height: 40px;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #000000, #1a1a1a);
+      color: white;
+      text-align: center;
+    }
+
+    header img {
+      max-width: 220px;
+      margin-top: 30px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-top: 20px;
+    }
+
+    .subtexto {
+      font-size: 1.1em;
+      margin-top: 10px;
+      color: #ddd;
+    }
+
+    .cbrav {
+      margin: 10px 0;
+      height: 40px;
       vertical-align: middle;
-      margin-left: 5px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 28px;
+      margin: 12px;
+      font-size: 1em;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .whatsapp {
+      background-color: #FFCC00;
+      color: #000;
+    }
+
+    .whatsapp:hover {
+      background-color: #e6b800;
+      transform: scale(1.05);
+    }
+
+    .vip {
+      background-color: transparent;
+      border: 2px solid #FFCC00;
+      color: #FFCC00;
+    }
+
+    .vip:hover {
+      background-color: #FFCC00;
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    .aviso {
+      font-size: 0.9em;
+      margin-top: 20px;
+      color: #aaa;
+    }
+
+    .aviso a {
+      color: #FFCC00;
+      text-decoration: underline;
+    }
+
+    section {
+      margin: 40px 20px;
+    }
+
+    .beneficios {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .beneficio {
+      border: 1px solid #FFCC00;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px 0;
+      background-color: #111;
+      transition: transform 0.3s ease;
+    }
+
+    .beneficio:hover {
+      transform: scale(1.03);
+      background-color: #1c1c1c;
+    }
+
+    .beneficio img {
+      height: 48px;
+      margin-bottom: 12px;
+    }
+
+    .beneficio h3 {
+      margin: 0 0 10px;
+    }
+
+    .beneficio p {
+      margin: 0;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
-  <header class="topo">
-    <img src="logo_pontocerto.png" alt="Logo Ponto Certo" class="logo" />
+  <header>
+    <img src="logo_ponto_certo.png" alt="Logo Ponto Certo" />
     <h1>Seu Repasse é Aqui!</h1>
-    <p>Realizando excelentes negócios desde 2016. Empresa verificada pela 
-      <a href="https://cbrav.com.br" target="_blank">
-        <img src="selo_cbrav.png" alt="Selo CBRAV" class="selo" />
-      </a>
-    </p>
-    <a href="https://wa.me/5599999999999" class="btn zap">Fale no WhatsApp</a>
-    <a href="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t" class="btn grupo">Entrar no Grupo VIP</a>
-    <p class="aviso">
-      Exclusivo para lojistas e investidores. Ao entrar, você declara ter lido e concordado com os 
-      <a href="termo_repasse_site.html" target="_blank">Termos do Repasse</a>.
-    </p>
+    <p class="subtexto">Realizando excelentes negócios desde 2016.<br>Empresa verificada pela <img src="logo_cbrav.png" alt="CBRAV" class="cbrav" /></p>
+    <a href="https://wa.me/SEUNUMERO" class="button whatsapp">Fale no WhatsApp</a>
+    <a href="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t" class="button vip">Entrar no Grupo VIP</a>
+    <p class="aviso">Exclusivo para lojistas e investidores. Ao entrar, você declara ter lido e concordado com os <a href="#termos">Termos do Repasse</a>.</p>
   </header>
+
   <section class="beneficios">
     <h2>Benefícios do Grupo VIP</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="oferta.png" alt="Ofertas" />
-        <h3>Ofertas Exclusivas</h3>
-        <p>Receba ofertas únicas que não estão em nenhum outro lugar.</p>
-      </div>
-      <div class="card">
-        <img src="assessoria.png" alt="Assessoria" />
-        <h3>Assessoria Completa</h3>
-        <p>Documentação, vistoria e segurança em todo processo.</p>
-      </div>
-      <div class="card">
-        <img src="negociacao.png" alt="Negociação" />
-        <h3>Negociações Rápidas</h3>
-        <p>Fale direto com quem vende e acelere seus negócios.</p>
-      </div>
+
+    <div class="beneficio">
+      <img src="oferta.png" alt="Ofertas" />
+      <h3>Ofertas Exclusivas</h3>
+      <p>Receba ofertas únicas que não estão em nenhum outro lugar.</p>
+    </div>
+
+    <div class="beneficio">
+      <img src="assessoria.png" alt="Assessoria" />
+      <h3>Assessoria Completa</h3>
+      <p>Documentação, vistoria e segurança em todo processo.</p>
+    </div>
+
+    <div class="beneficio">
+      <img src="negociacao.png" alt="Negociação" />
+      <h3>Negociações Rápidas</h3>
+      <p>Fale direto com quem vende e acelere seus negócios.</p>
     </div>
   </section>
 </body>
