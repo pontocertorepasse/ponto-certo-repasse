@@ -21,12 +21,13 @@
         box-shadow:0 0 15px #FFD700;
     }
     .btn img,.btn-cbrav img{height:20px;vertical-align:middle;margin-right:10px}
-    .btn-group-icon{filter:brightness(2) contrast(1.2);} /* clareia ícone do grupo */
+    .btn-group-icon{filter:invert(87%) sepia(76%) saturate(421%) hue-rotate(1deg) brightness(101%) contrast(96%);}
     .aviso{font-size:.9rem;margin-top:10px;padding:0 20px;color:#aaa}
     .aviso a{color:#FFD700;text-decoration:underline}
     .section{padding:40px 20px;background:#111;border-top:1px solid #444}
     .benefit-card{border:1px solid #FFD700;border-radius:12px;padding:20px;margin:20px auto;max-width:400px;background:#1a1a1a}
     .benefit-icon{width:60px;margin-bottom:10px}
+    footer{padding:20px 10px;font-size:.85em;color:#888;background:#000;border-top:1px solid #222;margin-top:30px}
     @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
   </style>
 </head>
@@ -36,7 +37,7 @@
 
   <!-- Botão CBRAV com efeito e logo maior -->
   <a href="https://www.cbrav.com.br/pontocerto" target="_blank" class="btn-cbrav" style="padding:16px 28px;">
-    <img src="logo_cbrav.png" alt="Selo CBRAV" style="height:32px;width:auto;margin-right:14px;">
+    <img src="logo_cbrav.png" alt="Selo CBRAV" style="height:50px;width:auto;margin-right:14px;">
     Empresa verificada pela CBRAV
   </a>
 
@@ -59,7 +60,7 @@
   </p>
 
   <div class="section">
-    <h2>Benefícios do Grupo VIP</h2>
+    <h2>Benefícios do <span style="color:#FFD700;">Grupo VIP</span></h2>
     <div class="benefit-card">
       <img src="oferta.png" class="benefit-icon" alt="Ofertas"/>
       <h3>Ofertas Exclusivas</h3>
@@ -76,5 +77,9 @@
       <p>Fale direto com quem vende e acelere seus negócios.</p>
     </div>
   </div>
+
+  <footer>
+    © 2024 Ponto Certo Repasse. Todos os direitos reservados.
+  </footer>
 </body>
 </html>
