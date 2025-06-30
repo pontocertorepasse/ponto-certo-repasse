@@ -1,193 +1,52 @@
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ponto Certo Repasse</title>
-  <link rel="icon" href="logo_pontocerto.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"/>
-  <script src="https://kit.fontawesome.com/a2e0f4f30d.js" crossorigin="anonymous"></script>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #000;
-      color: white;
-    }
-    header {
-      text-align: center;
-      padding: 2rem 1rem 1rem;
-    }
-    header img {
-      width: 150px;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    h1 {
-      margin: 0.5rem 0;
-      font-size: 2rem;
-    }
-    .slogan {
-      font-size: 1rem;
-      color: #ccc;
-    }
-    .cbrav {
-      display: inline-block;
-      margin: 1rem auto 2rem;
-      padding: 0.5rem 1rem;
-      border: 1px solid #888;
-      border-radius: 10px;
-      text-align: center;
-      text-decoration: none;
-      color: white;
-      transition: 0.3s;
-    }
-    .cbrav:hover {
-      background-color: #111;
-    }
-    .cbrav img {
-      height: 40px;
-      margin-bottom: 0.3rem;
-    }
-    .buttons {
-      text-align: center;
-      margin: 1rem auto;
-    }
-    .button {
-      display: block;
-      width: 80%;
-      max-width: 300px;
-      margin: 0.5rem auto;
-      padding: 1rem;
-      background: #000;
-      color: #FFD700;
-      border: 2px solid #FFD700;
-      border-radius: 10px;
-      text-align: center;
-      font-weight: bold;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .button:hover {
-      background: #FFD700;
-      color: #000;
-    }
-    .check-group {
-      text-align: center;
-      font-size: 0.9rem;
-      margin-top: 1rem;
-    }
-    .benefits {
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    .benefits h2 {
-      font-size: 1.8rem;
-    }
-    .benefits span {
-      color: #FFD700;
-    }
-    .benefit-box {
-      border: 1px solid #FFD700;
-      border-radius: 15px;
-      padding: 1rem;
-      margin: 1rem auto;
-      max-width: 320px;
-    }
-    .benefit-box img {
-      height: 50px;
-      margin-bottom: 1rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-    .socials {
-      margin-top: 1rem;
-    }
-    .socials a {
-      color: #aaa;
-      font-size: 1.5rem;
-      margin: 0 0.5rem;
-      transition: 0.3s;
-    }
-    .socials a:hover {
-      color: #FFD700;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ponto Certo Repasse</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <header class="hero">
+        <img src="assets/logo-ponto-certo.png" alt="Logo Ponto Certo" class="logo" />
+        <h1>Seu Repasse é Aqui!</h1>
+        <p>Mais de 9 anos no mercado, empresa verificada pela 
+            <a href="https://cbrav.org.br" target="_blank">
+                <img src="assets/selo-cbrav.png" alt="Selo CBRAV" class="selo-cbrav"/>
+            </a>
+        </p>
+        <div class="botoes">
+            <a href="https://wa.me/5588999999999" class="btn amarelo">Fale no WhatsApp</a>
+            <a href="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t" class="btn transparente">
+                Entrar no Grupo VIP
+            </a>
+        </div>
+        <p class="aviso">
+            Exclusivo para lojistas e investidores. Ao entrar, você declara ter lido e concordado com os 
+            <a href="termo_repasse_site.html" target="_blank">Termos do Repasse</a>.
+        </p>
+    </header>
 
-  <header>
-    <img src="logo_pontocerto.png" alt="Logo Ponto Certo" />
-    <h1>Ponto Certo Repasse</h1>
-    <p class="slogan">Conectando oportunidades, movendo negócios</p>
-    <a class="cbrav" href="https://cbrav.org.br/" target="_blank">
-      <img src="logo_cbrav.png" alt="Selo CBRAV" /><br/>
-      Empresa verificada pela CBRAV
-    </a>
-  </header>
-
-  <div class="buttons">
-    <a class="button" href="https://wa.me/5521969917328" target="_blank">
-      <i class="fab fa-whatsapp"></i> Fale Conosco
-    </a>
-    <div class="check-group">
-      <input type="checkbox" id="termos" />
-      <label for="termos">Li e concordo com os <a href="termo_repasse_site.html" target="_blank" style="color:#FFD700;">Termos de Repasse</a></label>
-    </div>
-    <a class="button" href="#" onclick="entrarGrupo(event)">
-      <i class="fas fa-lock"></i> Entrar no Grupo VIP
-    </a>
-  </div>
-
-  <section class="benefits">
-    <h2>Benefícios do <span>grupo VIP</span></h2>
-
-    <div class="benefit-box">
-      <img src="oferta.png" alt="Ofertas" />
-      <h3>Ofertas Exclusivas</h3>
-      <p>Receba ofertas únicas que não estão em nenhum outro lugar.</p>
-    </div>
-
-    <div class="benefit-box">
-      <img src="assessoria.png" alt="Assessoria" />
-      <h3>Assessoria Completa</h3>
-      <p>Documentação, vistoria e segurança em todo processo.</p>
-    </div>
-
-    <div class="benefit-box">
-      <img src="negociacao.png" alt="Negociação" />
-      <h3>Negociações Rápidas</h3>
-      <p>Fale direto com quem vende e acelere seus negócios.</p>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2024 Ponto Certo Repasse. Todos os direitos reservados.</p>
-    <div class="socials">
-      <a href="https://instagram.com/pontocertorepasse" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://facebook.com/pontocertorepasse" target="_blank"><i class="fab fa-facebook"></i></a>
-    </div>
-  </footer>
-
-  <script>
-    function entrarGrupo(event) {
-      const termos = document.getElementById('termos');
-      if (!termos.checked) {
-        event.preventDefault();
-        alert("Você precisa aceitar os Termos de Repasse para entrar no grupo.");
-        return false;
-      }
-      window.open("https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t", "_blank");
-    }
-  </script>
+    <section class="beneficios">
+        <h2>Benefícios do Grupo VIP</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="assets/icon-ofertas.png" alt="Ofertas"/>
+                <h3>Ofertas Exclusivas</h3>
+                <p>Receba ofertas únicas que não estão em nenhum outro lugar.</p>
+            </div>
+            <div class="card">
+                <img src="assets/icon-assessoria.png" alt="Assessoria"/>
+                <h3>Assessoria Completa</h3>
+                <p>Documentação, vistoria e segurança em todo processo.</p>
+            </div>
+            <div class="card">
+                <img src="assets/icon-negociacao.png" alt="Negociação"/>
+                <h3>Negociações Rápidas</h3>
+                <p>Fale direto com quem vende e acelere seus negócios.</p>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
