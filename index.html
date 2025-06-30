@@ -1,199 +1,145 @@
-
 <!DOCTYPE html>
-<html lang="pt-br">
+
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ponto Certo Repasse</title>
-  <link rel="icon" href="logo_ponto_certo.png" type="image/png"/>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #000;
-      color: #fff;
-      text-align: center;
-    }
-    .hero {
-      padding: 30px 20px 20px;
-    }
-    .hero h2 {
-      color: #FFD700;
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
-    .hero p {
-      color: #ccc;
-      font-size: 16px;
-      margin: 0 0 25px;
-    }
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .botao {
-      border-radius: 10px;
-      padding: 14px 28px;
-      font-size: 16px;
-      border: 2px solid #FFD700;
-      color: #FFD700;
-      background-color: transparent;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .botao:hover {
-      background-color: #FFD700;
-      color: #000;
-    }
-    .botao-cbrav {
-      background-color: #FFD700;
-      color: #000;
-      font-weight: 600;
-    }
-    .botao-cbrav:hover {
-      filter: brightness(0.9);
-    }
-    .icone {
-      height: 20px;
-    }
-    .footer {
-      font-size: 14px;
-      color: #ccc;
-      padding: 20px;
-    }
-    .footer a {
-      color: #FFD700;
-      text-decoration: none;
-    }
-    .footer a:hover {
-      text-decoration: underline;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      padding-top: 100px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.7);
-    }
-    .modal-content {
-      background-color: #1c1c1c;
-      margin: auto;
-      padding: 20px;
-      border: 1px solid #888;
-      width: 90%;
-      max-width: 400px;
-      color: #fff;
-      border-radius: 10px;
-    }
-    .modal-content label {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 20px 0;
-    }
-    .modal-content button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      margin: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    .btn-confirm {
-      background-color: #FFD700;
-      color: #000;
-    }
-    .btn-cancel {
-      background-color: transparent;
-      color: #FFD700;
-      border: 2px solid #FFD700;
-    }
-    .btn-confirm:hover,
-    .btn-cancel:hover {
-      opacity: 0.8;
-    }
-  </style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ponto Certo Repasse</title>
+<style>
+    body{margin:0;font-family:Arial,sans-serif;background:#000;color:#fff;text-align:center}
+    .logo{margin-top:20px;width:200px;animation:pulse 2s infinite}
+    .descricao{font-style:italic;color:#ccc;font-size:1.1em}
+    .btn,.btn-cbrav{
+        display:inline-flex;align-items:center;justify-content:center;
+        width:260px;margin:12px auto;padding:15px 25px;
+        border-radius:8px;font-size:1em;font-weight:bold;text-decoration:none;
+        background:#000;color:#FFD700;border:2px solid #FFD700;
+        transition:.3s;box-shadow:0 0 0 transparent}
+    .btn:hover,.btn-cbrav:hover{
+        background:#FFD700;color:#000;transform:scale(1.05);
+        box-shadow:0 0 15px #FFD700}
+    .btn img,.btn-cbrav img{height:20px;margin-right:10px}
+    .btn-group-icon{filter:invert(87%) sepia(76%) saturate(421%) hue-rotate(1deg) brightness(101%) contrast(96%);}
+    .aviso{font-size:.9rem;margin-top:10px;padding:0 20px;color:#aaa}
+    .aviso a{color:#FFD700;text-decoration:underline}
+    .section{padding:40px 20px;background:#111;border-top:1px solid #444}
+    .benefit-card{border:1px solid #FFD700;border-radius:12px;padding:20px;margin:20px auto;max-width:400px;background:#1a1a1a}
+    .benefit-icon{width:60px;margin-bottom:10px}
+    footer{padding:20px 10px;font-size:.85em;color:#888;background:#000;border-top:1px solid #222;margin-top:30px}
+    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+    /* modal */
+    #modalTermo{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:9999}
+    #modalTermo .box{background:#111;border:1px solid #FFD700;border-radius:12px;max-width:380px;width:90%;padding:30px;color:#fff;text-align:left}
+    #modalTermo h3{margin-top:0;color:#FFD700}
+    #modalTermo button{padding:10px 22px;border-radius:8px;font-weight:bold;cursor:pointer;margin-top:10px}
+    #confirmar{background:#FFD700;border:none;color:#000}
+    #fechar{background:transparent;border:none;color:#aaa;margin-left:8px}
+  
+@media (max-width: 768px) {
+  .logo {
+    width: 140px !important;
+  }
+}
+
+
+.benefit-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+.benefit-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+#confirmar, #fechar {
+  background: transparent;
+  color: #FFD700;
+  border: 2px solid #FFD700;
+  border-radius: 8px;
+  padding: 10px 22px;
+  margin-top: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#confirmar:hover, #fechar:hover {
+  background: #FFD700;
+  color: #000;
+}
+
+</style>
+<link href="favicon.png" rel="icon" type="image/png"/>
 </head>
 <body>
-
-  <div class="hero">
-    <h2><em>Conectamos lojistas e investidores às melhores oportunidades do mercado automotivo.</em></h2>
-    <p>Ofertas de veículos de todo o Brasil, sempre com preços atrativos e segurança nas negociações.</p>
-
-    <div class="buttons">
-      <button class="botao" onclick="abrirModal()">
-        <img class="icone" src="cadeado.png" alt="cadeado" />
-        Entrar no Grupo VIP
-      </button>
-      <a href="https://wa.me/5599999999999" target="_blank">
-        <button class="botao">
-          <img class="icone" src="whatsapp.png" alt="whatsapp" />
-          Fale Conosco
-        </button>
-      </a>
-      <a href="https://cbrav.com.br" target="_blank">
-        <button class="botao botao-cbrav">
-          <img class="icone" src="cbrav.png" alt="cbrav" />
-          Verificado CBRAV
-        </button>
-      </a>
-    </div>
-
-    <p class="footer">
-      Exclusivo para lojistas e investidores. Ao entrar, você declara ter lido e concordado com o <a href="termo_repasse_site.html" target="_blank">termo de repasse</a>.
-    </p>
-  </div>
-
-  <div id="modalGrupo" class="modal">
-    <div class="modal-content">
-      <h3>Aviso</h3>
-      <label>
-        <input type="checkbox" id="concorda" />
-        Li e concordo com o <a href="termo_repasse_site.html" target="_blank" style="color:#FFD700;">termo de repasse</a>
-      </label>
-      <button class="btn-confirm" onclick="entrarGrupo()">Continuar</button>
-      <button class="btn-cancel" onclick="fecharModal()">Cancelar</button>
-    </div>
-  </div>
-
-  <script>
-    function abrirModal() {
-      document.getElementById("modalGrupo").style.display = "block";
-    }
-
-    function fecharModal() {
-      document.getElementById("modalGrupo").style.display = "none";
-    }
-
-    function entrarGrupo() {
-      const check = document.getElementById("concorda");
-      if (check.checked) {
-        window.open("https://chat.whatsapp.com/SEU-LINK-AQUI", "_blank");
-        fecharModal();
-      } else {
-        alert("Você precisa concordar com o termo de repasse para continuar.");
+<img alt="Logo Ponto Certo" class="logo" src="logo_ponto_certo.png"/>
+<p class="descricao"><span style="color: #FFD700; font-weight: 800; font-size: 1.4em; font-family: 'Arial Black', sans-serif; text-shadow: 1px 1px 2px #000;">Conectamos lojistas e investidores às melhores oportunidades do mercado automotivo.</span><br/><br/>Ofertas de veículos de todo o Brasil, sempre com preços atrativos e segurança nas negociações.</p>
+<div style="height:30px;"></div>
+<a class="btn" href="#" id="btnGrupo">
+<img alt="Grupo Icon" class="btn-group-icon" src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png"/>
+    Entrar no Grupo VIP
+  </a>
+<a class="btn" href="https://wa.me/5521969917328">
+<img alt="Whatsapp Icon" src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png"/>
+    Fale Conosco
+  </a><a class="btn" href="https://www.cbrav.com.br/pontocerto" style="display:flex; align-items:center; justify-content:center; gap:10px; background-color:#FFD700; color:black; font-weight:bold;" target="_blank">
+<img alt="Selo CBRAV" src="logo_cbrav.png" style="height:24px;"/>Verificado CBRAV</a>
+<p class="aviso">Exclusivo para lojistas e investidores. Ao entrar, você declara ter lido e concordado com o <a href="termo_repasse_site.html" id="termos-link" style="color:#FFD700;text-decoration:underline;display:inline-block;transition:transform .2s;" target="_blank">termo de repasse</a>.</p>
+<div class="section">
+<h2>Benefícios do <span style="color:#FFD700;">Grupo VIP</span></h2>
+<div class="benefit-card"><img alt="Ofertas" class="benefit-icon" src="oferta.png"/><h3>Ofertas Exclusivas</h3><p>Receba ofertas únicas que não estão em nenhum outro lugar.</p></div>
+<div class="benefit-card"><img alt="Assessoria" class="benefit-icon" src="assessoria.png"/><h3>Assessoria Completa</h3><p>Documentação, vistoria e segurança em todo processo.</p></div>
+<div class="benefit-card"><img alt="Negociação" class="benefit-icon" src="negociacao.png"/><h3>Negociações Rápidas</h3><p>Fale direto com quem vende e acelere seus negócios.</p></div>
+</div>
+<div style="margin-top:30px;">
+<a href="https://www.instagram.com/pontocertorepasse" style="display:inline-flex;align-items:center;margin:5px 10px;
+              font-size:0.9em;color:#FFD700;text-decoration:none;" target="_blank">
+<img alt="Instagram Icon" src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" style="height:18px;margin-right:8px;"/>
+      @pontocertorepasse
+    </a>
+<a href="https://www.facebook.com/pontocertorepasse" style="display:inline-flex;align-items:center;margin:5px 10px;
+              font-size:0.9em;color:#FFD700;text-decoration:none;" target="_blank">
+<img alt="Facebook Icon" src="https://cdn-icons-png.flaticon.com/512/733/733547.png" style="height:18px;margin-right:8px;"/>
+      /pontocertorepasse
+    </a>
+</div>
+<footer>© 2024 Ponto Certo Repasse. Todos os direitos reservados.</footer>
+<div id="modalTermo">
+<div class="box">
+<h3>Confirmação necessária</h3>
+<p style="font-size:.9em;">Este grupo é exclusivo para lojistas e investidores. Ao continuar, você declara que leu e concorda com o <a href="termo_repasse_site.html" style="color: #FFD700; text-decoration: underline;" target="_blank">termo de repasse</a>.</p>
+<label style="display:flex;align-items:center;gap:8px;margin:12px 0;">
+<input id="chkConcordo" type="checkbox"/>
+<span>Li e concordo com o termo de repasse</span>
+</label>
+<button id="confirmar">Continuar</button>
+<button id="fechar">Cancelar</button>
+</div>
+</div>
+<script>
+const btnGrupo=document.getElementById('btnGrupo');
+const modal=document.getElementById('modalTermo');
+const fechar=document.getElementById('fechar');
+const confirmar=document.getElementById('confirmar');
+const chk=document.getElementById('chkConcordo');
+const linkGrupo="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t";
+btnGrupo.onclick=e=>{e.preventDefault();modal.style.display="flex";};
+fechar.onclick=()=>{modal.style.display="none";chk.checked=false;};
+confirmar.onclick=()=>{if(!chk.checked){alert("Você precisa marcar que leu e concorda com os termos.");return;}window.location.href=linkGrupo;};
+</script>
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
       }
-    }
+    });
+  }, { threshold: 0.1 });
 
-    window.onclick = function(event) {
-      const modal = document.getElementById("modalGrupo");
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-  </script>
-
+  document.querySelectorAll('.benefit-card').forEach(card => {
+    observer.observe(card);
+  });
+</script>
 </body>
 </html>
