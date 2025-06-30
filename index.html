@@ -1,25 +1,25 @@
-
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <link rel="icon" href="favicon.png" type="image/png">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ponto Certo Repasse</title>
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
       background-color: #000;
-      color: white;
-      text-align: center;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
     }
     header {
-      padding: 30px 20px 10px;
+      text-align: center;
+      padding: 2rem;
     }
     header img {
-      width: 180px;
+      width: 200px;
       animation: pulse 2s infinite;
     }
     @keyframes pulse {
@@ -27,91 +27,170 @@
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
-    h1 {
-      font-size: 1.8em;
-      margin: 10px 0;
-      font-weight: 500;
+    .tagline {
+      font-size: 1rem;
+      color: #FFD700;
+      margin-top: 0.5rem;
     }
-    .cta-buttons {
-      margin-top: 30px;
+    h1 {
+      text-align: center;
+      margin: 2rem 1rem 0.5rem;
+      font-size: 2rem;
+    }
+    .verificada {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #1a1a1a;
+      border: 1px solid #FFD700;
+      border-radius: 10px;
+      padding: 10px 20px;
+      margin: 1rem auto;
+      width: fit-content;
+    }
+    .verificada img {
+      height: 30px;
+      margin-left: 10px;
+    }
+    .botoes {
       display: flex;
       flex-direction: column;
-      gap: 15px;
       align-items: center;
+      gap: 12px;
+      margin: 2rem 0;
     }
-    .cta-buttons a {
+    .botao {
       background-color: #000;
-      border: 2px solid #FFD700;
-      padding: 12px 25px;
-      text-decoration: none;
-      font-size: 1em;
-      border-radius: 8px;
       color: #FFD700;
-      transition: 0.3s;
-      width: 260px;
-    }
-    .cta-buttons a:hover {
-      background-color: #FFD700;
-      color: black;
-    }
-    .cbrav-section {
-      margin: 40px auto 20px;
-      display: inline-block;
-      border: 1.5px solid #FFD700;
-      border-radius: 12px;
+      border: 1px solid #FFD700;
+      border-radius: 8px;
       padding: 12px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
     }
-    .cbrav-section img {
-      width: 140px;
-      display: block;
-      margin: 0 auto 10px;
+    .botao:hover {
+      background-color: #FFD700;
+      color: #000;
     }
-    .cbrav-section span {
-      font-size: 0.9em;
-      color: white;
+    .botao i {
+      font-size: 1.2rem;
+    }
+    .disclaimer {
+      font-size: 0.9rem;
+      text-align: center;
+      margin: 1rem;
+    }
+    .disclaimer a {
+      color: #FFD700;
+    }
+    .beneficios {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .beneficios h2 {
+      font-size: 1.5rem;
+    }
+    .beneficios span {
+      color: #FFD700;
+    }
+    .redes {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 3rem 0 2rem;
+    }
+    .redes a img {
+      width: 28px;
+      height: 28px;
+      transition: transform 0.3s ease;
+    }
+    .redes a img:hover {
+      transform: scale(1.2);
     }
     footer {
-      margin-top: 40px;
-      font-size: 0.8em;
-      color: #888;
-      padding-bottom: 30px;
-    }
-    .socials {
-      margin-top: 30px;
-    }
-    .socials a {
-      margin: 0 10px;
-      color: #FFD700;
-      text-decoration: none;
-      font-size: 1.5em;
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 1rem 0;
+      color: #777;
     }
   </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
-    <img src="assets/logo.png" alt="Ponto Certo Repasse" />
-    <h1>Conectando oportunidades, movendo negócios</h1>
+    <img src="logo-ponto-certo.png" alt="Logo Ponto Certo" />
+    <div class="tagline">Conectando oportunidades, movendo negócios</div>
   </header>
 
-  <div class="cta-buttons">
-    <a href="https://wa.me/5521969917328" target="_blank">Fale conosco</a>
-    <a href="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t" target="_blank" onclick="return confirm('Este grupo é exclusivo para lojistas e investidores. Ao entrar, você confirma que leu e concorda com o Termo de Repasse.')">Entrar no Grupo VIP</a>
+  <h1>Empresa verificada pela</h1>
+  <div class="verificada">
+    <span>CBRAV</span>
+    <img src="logo-cbrav.png" alt="Selo CBRAV" />
   </div>
 
-  <div class="cbrav-section">
-    <a href="https://www.cbrav.com.br/pontocerto" target="_blank">
-      <img src="assets/cbrav.png" alt="CBRAV" />
-      <span>Empresa verificada pela CBRAV</span>
+  <div class="botoes">
+    <a href="https://wa.me/5521969917328" class="botao">
+      <i class="fab fa-whatsapp"></i> Fale Conosco
+    </a>
+    <a href="#" onclick="document.getElementById('modalGrupo').style.display='flex'" class="botao">
+      <i class="fas fa-lock"></i> Entrar no Grupo VIP
     </a>
   </div>
 
-  <div class="socials">
-    <a href="https://www.instagram.com/pontocertorepasse" target="_blank">📸</a>
-    <a href="https://www.facebook.com/pontocertorepasse" target="_blank">📘</a>
+  <div class="disclaimer">
+    Exclusivo para lojistas e investidores.<br />
+    Ao entrar, você declara ter lido e concordado com os <a href="termo_repasse_site.html">Termos do Repasse</a>.
+  </div>
+
+  <div class="beneficios">
+    <h2>Benefícios do <span>Grupo VIP</span></h2>
+  </div>
+
+  <div class="redes">
+    <a href="https://instagram.com/pontocertorepasse" target="_blank">
+      <img src="https://img.icons8.com/ios-filled/50/FFD700/instagram-new.png" alt="Instagram">
+    </a>
+    <a href="https://facebook.com/pontocertorepasse" target="_blank">
+      <img src="https://img.icons8.com/ios-filled/50/FFD700/facebook--v1.png" alt="Facebook">
+    </a>
   </div>
 
   <footer>
     © 2024 Ponto Certo Repasse. Todos os direitos reservados.
   </footer>
+
+<!-- Modal Grupo VIP -->
+<div id="modalGrupo" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.9); z-index:9999; justify-content:center; align-items:center;">
+  <div style="background:#111; padding:20px; border-radius:12px; max-width:90%; width:400px; text-align:center; color:white;">
+    <h2>Entrar no Grupo VIP</h2>
+    <p>Este grupo é exclusivo para lojistas e investidores. Ao continuar, você confirma que leu e concorda com os <a href='termo_repasse_site.html' style='color:#FFD700' target='_blank'>Termos de Repasse</a>.</p>
+    <label style="display:flex; align-items:center; gap:10px; justify-content:center; margin-top:1rem;">
+      <input type="checkbox" id="confirmTermoGrupo" /> Li e concordo
+    </label>
+    <button onclick="continuarGrupo()" style="margin-top:1rem; padding:10px 20px; background-color:#FFD700; border:none; border-radius:8px; font-weight:bold; cursor:pointer;">Entrar no Grupo</button>
+    <br><br>
+    <button onclick="fecharModalGrupo()" style="background:none; color:#ccc; border:none; margin-top:10px;">Fechar</button>
+  </div>
+</div>
+
+
+<script>
+function fecharModalGrupo() {
+  document.getElementById('modalGrupo').style.display = 'none';
+}
+
+function continuarGrupo() {
+  if (document.getElementById('confirmTermoGrupo').checked) {
+    window.location.href = "https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3";
+  } else {
+    alert("Você precisa confirmar que leu e concorda com os Termos de Repasse.");
+  }
+}
+</script>
+
 </body>
 </html>
