@@ -15,61 +15,99 @@
       text-align: center;
     }
     header {
-      padding: 20px;
+      padding: 30px 20px 10px;
+    }
+    header img {
+      width: 180px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
     h1 {
-      font-size: 2em;
+      font-size: 1.8em;
       margin: 10px 0;
+      font-weight: 500;
     }
-    .icons-section {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin: 40px auto;
-      flex-wrap: wrap;
-    }
-    .icon-box {
-      width: 100px;
+    .cta-buttons {
+      margin-top: 30px;
       display: flex;
       flex-direction: column;
+      gap: 15px;
       align-items: center;
     }
-    .icon-box img {
-      width: 80px;
-      height: auto;
-      margin-bottom: 10px;
-    }
-    .icon-title {
+    .cta-buttons a {
+      background-color: #000;
+      border: 2px solid #FFD700;
+      padding: 12px 25px;
+      text-decoration: none;
       font-size: 1em;
+      border-radius: 8px;
       color: #FFD700;
+      transition: 0.3s;
+      width: 260px;
+    }
+    .cta-buttons a:hover {
+      background-color: #FFD700;
+      color: black;
+    }
+    .cbrav-section {
+      margin: 40px auto 20px;
+      display: inline-block;
+      border: 1.5px solid #FFD700;
+      border-radius: 12px;
+      padding: 12px 20px;
+    }
+    .cbrav-section img {
+      width: 140px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    .cbrav-section span {
+      font-size: 0.9em;
+      color: white;
     }
     footer {
-      margin-top: 60px;
+      margin-top: 40px;
       font-size: 0.8em;
-      color: #666;
+      color: #888;
+      padding-bottom: 30px;
+    }
+    .socials {
+      margin-top: 30px;
+    }
+    .socials a {
+      margin: 0 10px;
+      color: #FFD700;
+      text-decoration: none;
+      font-size: 1.5em;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="assets/logo.png" alt="Logo Ponto Certo" width="150" />
+    <img src="assets/logo.png" alt="Ponto Certo Repasse" />
     <h1>Conectando oportunidades, movendo negócios</h1>
   </header>
 
-  <section class="icons-section">
-    <div class="icon-box">
-      <img src="assets/ofertas.svg" alt="Ofertas Exclusivas"/>
-      <div class="icon-title">Ofertas Exclusivas</div>
-    </div>
-    <div class="icon-box">
-      <img src="assets/assessoria_icon_final.svg" alt="Assessoria Completa"/>
-      <div class="icon-title">Assessoria Completa</div>
-    </div>
-    <div class="icon-box">
-      <img src="assets/negociacao.svg" alt="Negociações Rápidas"/>
-      <div class="icon-title">Negociações Rápidas</div>
-    </div>
-  </section>
+  <div class="cta-buttons">
+    <a href="https://wa.me/5521969917328" target="_blank">Fale conosco</a>
+    <a href="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t" target="_blank" onclick="return confirm('Este grupo é exclusivo para lojistas e investidores. Ao entrar, você confirma que leu e concorda com o Termo de Repasse.')">Entrar no Grupo VIP</a>
+  </div>
+
+  <div class="cbrav-section">
+    <a href="https://www.cbrav.com.br/pontocerto" target="_blank">
+      <img src="assets/cbrav.png" alt="CBRAV" />
+      <span>Empresa verificada pela CBRAV</span>
+    </a>
+  </div>
+
+  <div class="socials">
+    <a href="https://www.instagram.com/pontocertorepasse" target="_blank">📸</a>
+    <a href="https://www.facebook.com/pontocertorepasse" target="_blank">📘</a>
+  </div>
 
   <footer>
     © 2024 Ponto Certo Repasse. Todos os direitos reservados.
