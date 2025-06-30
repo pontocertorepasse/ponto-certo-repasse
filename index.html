@@ -34,52 +34,10 @@
     #confirmar{background:#FFD700;border:none;color:#000}
     #fechar{background:transparent;border:none;color:#aaa;margin-left:8px}
   
-    a[href*="termo_repasse_site.html"]:hover {
-      display: inline-block;
-      transform: translateY(-2px);
-      transition: all 0.2s ease-in-out;
-    }
-
-
-    #confirmar, #fechar {
-      padding:10px 22px;
-      border-radius:8px;
-      font-weight:bold;
-      cursor:pointer;
-      margin-top:10px;
-      background: transparent;
-      border: 2px solid #FFD700;
-      color: #FFD700;
-      transition: 0.3s;
-    }
-
-    #confirmar:hover, #fechar:hover {
-      background: #FFD700;
-      color: #000;
-    }
-
-
-    a[href*="instagram.com"]:hover img,
-    a[href*="facebook.com"]:hover img {
-      transform: scale(1.2);
-      filter: brightness(1.3);
-      transition: all 0.3s ease;
-    }
-
-
-    .benefit-card {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-out;
-    }
-    .benefit-card.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-
-#termos-link:hover {
-  transform: translateY(-3px);
+@media (max-width: 768px) {
+  .logo {
+    width: 140px !important;
+  }
 }
 
 </style>
@@ -107,7 +65,7 @@
 
   <p class="aviso">
     Exclusivo para lojistas e investidores. Ao entrar, você declara ter lido e concordado com os
-    <a id="termos-link" href="termo_repasse_site.html" target="_blank" style="color:#FFD700;text-decoration:underline;display:inline-block;transition:transform .2s;">termos de repasse</a>.
+    <a href="termo_repasse_site.html" target="_blank">Termos do Repasse</a>.
   </p>
 
   <div class="section">
@@ -143,7 +101,7 @@
       <p style="font-size:.9em;">
         Este grupo é <strong>exclusivo para lojistas e investidores</strong>.<br>
         Ao continuar você declara que leu e concorda com o
-        <a id="termos-link" href="termo_repasse_site.html" target="_blank" style="color:#FFD700;text-decoration:underline;display:inline-block;transition:transform .2s;">termos de repasse</a>.
+        <a href="termo_repasse_site.html" target="_blank" style="color:#FFD700;">Termo de Repasse</a>.
       </p>
       <label style="display:flex;align-items:center;gap:8px;margin:12px 0;">
         <input type="checkbox" id="chkConcordo">
@@ -165,20 +123,5 @@ btnGrupo.onclick=e=>{e.preventDefault();modal.style.display="flex";};
 fechar.onclick=()=>{modal.style.display="none";chk.checked=false;};
 confirmar.onclick=()=>{if(!chk.checked){alert("Você precisa marcar que leu e concorda com os termos.");return;}window.location.href=linkGrupo;};
 </script>
-
-<script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.benefit-card').forEach(card => {
-    observer.observe(card);
-  });
-</script>
 </body>
-
 </html>
