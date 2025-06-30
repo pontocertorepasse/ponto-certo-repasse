@@ -1,84 +1,99 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ponto Certo Repasse</title>
-
-  <!-- Favicon da logo -->
-  <link rel="icon" type="image/png" href="favicon.png" />
-
   <style>
-    :root  { --gold:#FFD700; --black:#000; --gray:#AAA; }
-    *      { box-sizing:border-box; }
-    body   { margin:0; font-family:Arial,Helvetica,sans-serif;
-             background:#000; color:#fff; text-align:center; }
-
-    header { padding:30px 20px 10px; }
-    header img { width:190px; animation:pulse 3s infinite; }
-    @keyframes pulse { 0%{transform:scale(1)}50%{transform:scale(1.05)} }
-
-    h1 { margin:14px 0 4px; font-size:1.8em; font-weight:500; }
-
-    .btn-block  { display:flex; flex-direction:column; gap:15px;
-                  align-items:center; margin-top:28px; }
-    .btn-block a{ display:inline-block; width:260px; padding:14px 25px;
-                  border:2px solid var(--gold); border-radius:8px;
-                  background:var(--black); color:var(--gold);
-                  font-weight:bold; text-decoration:none; transition:.25s; }
-    .btn-block a:hover{ background-color: var(--gold); color: var(--black);
-                        transform:scale(1.05); }
-
-    .cbrav { margin:40px auto 25px; display:inline-flex;
-             flex-direction:column; align-items:center;
-             padding:14px 22px; border:1.5px solid var(--gold);
-             border-radius:12px; }
-    .cbrav img { width:140px; margin-bottom:10px; }
-    .cbrav span{ font-size:.9em; }
-
-    .social { margin:40px 0 10px; }
-    .social a{ margin:0 10px; color:var(--gold); font-size:1.8em;
-               text-decoration:none; transition:.2s; }
-    .social a:hover{ color:#fff; }
-
-    footer { margin:40px 0 30px; font-size:.8em; color:var(--gray); }
+    body{margin:0;font-family:Arial,sans-serif;background:#000;color:#fff;text-align:center}
+    .logo{margin-top:20px;width:200px;animation:pulse 2s infinite}
+    .descricao{font-style:italic;color:#ccc;font-size:1.1em}
+    .btn,.btn-cbrav,.btn-insta{
+        display:inline-flex;align-items:center;justify-content:center;
+        width:260px;margin:12px auto;padding:15px 25px;
+        border-radius:8px;font-size:1em;font-weight:bold;text-decoration:none;
+        background:#000;color:#FFD700;border:2px solid #FFD700;
+        transition:.3s;box-shadow:0 0 0 transparent;
+    }
+    .btn:hover,.btn-cbrav:hover,.btn-insta:hover{
+        background:#FFD700;color:#000;transform:scale(1.05);
+        box-shadow:0 0 15px #FFD700;
+    }
+    .btn img,.btn-cbrav img,.btn-insta img{height:20px;vertical-align:middle;margin-right:10px}
+    .btn-group-icon{filter:invert(87%) sepia(76%) saturate(421%) hue-rotate(1deg) brightness(101%) contrast(96%);}
+    .aviso{font-size:.9rem;margin-top:10px;padding:0 20px;color:#aaa}
+    .aviso a{color:#FFD700;text-decoration:underline}
+    .section{padding:40px 20px;background:#111;border-top:1px solid #444}
+    .benefit-card{border:1px solid #FFD700;border-radius:12px;padding:20px;margin:20px auto;max-width:400px;background:#1a1a1a}
+    .benefit-icon{width:60px;margin-bottom:10px}
+    footer{padding:20px 10px;font-size:.85em;color:#888;background:#000;border-top:1px solid #222;margin-top:30px}
+    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
   </style>
 </head>
 <body>
+  <img src="logo_ponto_certo.png" alt="Logo Ponto Certo" class="logo" />
+  <p class="descricao">Conectando oportunidades, movendo negócios.</p>
 
-  <header>
-    <img src="logo_pontocerto.png" alt="Ponto Certo Repasse">
-    <h1>Conectando oportunidades, movendo negócios</h1>
-  </header>
-
-  <div class="btn-block">
-    <a href="https://wa.me/5521969917328" target="_blank">
-      Fale Conosco
-    </a>
-    <a href="#"
-       onclick="
-         if(confirm('Este grupo é exclusivo para lojistas e investidores.\nAo entrar, você confirma que leu e concorda com o Termo de Repasse.')){
-           window.location.href='https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t';
-         }
-         return false;
-       ">
-      Entrar no Grupo VIP
-    </a>
-  </div>
-
-  <a href="https://www.cbrav.com.br/pontocerto" target="_blank" class="cbrav">
-    <img src="logo_cbrav.png" alt="CBRAV verificada">
-    <span>Empresa verificada pela CBRAV</span>
+  <!-- Botão CBRAV com efeito e logo maior -->
+  <a href="https://www.cbrav.com.br/pontocerto" target="_blank" class="btn-cbrav" style="padding:16px 28px;">
+    <img src="logo_cbrav.png" alt="Selo CBRAV" style="height:50px;width:auto;margin-right:14px;">
+    Empresa verificada pela CBRAV
   </a>
 
-  <div class="social">
-    <a href="https://www.instagram.com/pontocertorepasse" target="_blank" title="Instagram">📸</a>
-    <a href="https://facebook.com/pontocertorepasse"        target="_blank" title="Facebook">📘</a>
+  <!-- Espaço extra -->
+  <div style="height:30px;"></div>
+
+  <!-- Botões de contato com ícones ajustados -->
+  <a href="https://wa.me/5521969917328" class="btn">
+    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png" alt="Whatsapp Icon">
+    Fale Conosco
+  </a>
+  <a href="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t" class="btn">
+    <img src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png" alt="Grupo Icon" class="btn-group-icon">
+    Entrar no Grupo VIP
+  </a>
+
+  <!-- Botão do Instagram -->
+  
+
+
+  <p class="aviso">
+    Exclusivo para lojistas e investidores. Ao entrar, você declara ter lido e concordado com os
+    <a href="termo_repasse_site.html" target="_blank">Termos do Repasse</a>.
+  </p>
+
+  <div class="section">
+    <h2>Benefícios do <span style="color:#FFD700;">Grupo VIP</span></h2>
+    <div class="benefit-card">
+      <img src="oferta.png" class="benefit-icon" alt="Ofertas"/>
+      <h3>Ofertas Exclusivas</h3>
+      <p>Receba ofertas únicas que não estão em nenhum outro lugar.</p>
+    </div>
+    <div class="benefit-card">
+      <img src="assessoria.png" class="benefit-icon" alt="Assessoria"/>
+      <h3>Assessoria Completa</h3>
+      <p>Documentação, vistoria e segurança em todo processo.</p>
+    </div>
+    <div class="benefit-card">
+      <img src="negociacao.png" class="benefit-icon" alt="Negociação"/>
+      <h3>Negociações Rápidas</h3>
+      <p>Fale direto com quem vende e acelere seus negócios.</p>
+    </div>
+  </div>
+
+  
+  <div style="margin-top:30px;">
+    <a href="https://www.instagram.com/pontocertorepasse" target="_blank" style="display:inline-flex;align-items:center;margin:5px 10px;font-size:0.9em;color:#FFD700;text-decoration:none;">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram Icon" style="height:18px;margin-right:8px;">@pontocertorepasse
+    </a>
+    <a href="https://www.facebook.com/pontocertorepasse" target="_blank" style="display:inline-flex;align-items:center;margin:5px 10px;font-size:0.9em;color:#FFD700;text-decoration:none;">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook Icon" style="height:18px;margin-right:8px;">/pontocertorepasse
+    </a>
   </div>
 
   <footer>
     © 2024 Ponto Certo Repasse. Todos os direitos reservados.
   </footer>
-
 </body>
 </html>
