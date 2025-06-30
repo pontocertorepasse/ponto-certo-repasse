@@ -40,12 +40,23 @@
   }
 }
 
+
+.benefit-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+.benefit-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 </style>
 <link rel="icon" href="favicon.png" type="image/png">
 </head>
 <body>
   <img src="logo_ponto_certo.png" alt="Logo Ponto Certo" class="logo">
-  <p class="descricao">Conectando oportunidades, movendo negócios.</p>
+  <p class="descricao">Conectando oportunidades,<br>movendo negócios.</p>
 
   <a href="https://www.cbrav.com.br/pontocerto" target="_blank" class="btn-cbrav" style="padding:16px 28px;">
     <img src="logo_cbrav.png" alt="Selo CBRAV" style="height:50px;width:auto;margin-right:14px;">
@@ -123,5 +134,20 @@ btnGrupo.onclick=e=>{e.preventDefault();modal.style.display="flex";};
 fechar.onclick=()=>{modal.style.display="none";chk.checked=false;};
 confirmar.onclick=()=>{if(!chk.checked){alert("Você precisa marcar que leu e concorda com os termos.");return;}window.location.href=linkGrupo;};
 </script>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.benefit-card').forEach(card => {
+    observer.observe(card);
+  });
+</script>
 </body>
+
 </html>
