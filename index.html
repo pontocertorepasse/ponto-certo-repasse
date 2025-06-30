@@ -77,6 +77,11 @@
       transform: translateY(0);
     }
 
+
+#termos-link:hover {
+  transform: translateY(-3px);
+}
+
 </style>
 <link rel="icon" href="favicon.png" type="image/png">
 </head>
@@ -102,7 +107,7 @@
 
   <p class="aviso">
     Exclusivo para lojistas e investidores. Ao entrar, você declara ter lido e concordado com os
-    <a href="termo_repasse_site.html" target="_blank">Termos de Repasse</a>.
+    <a id="termos-link" href="termo_repasse_site.html" target="_blank" style="color:#FFD700;text-decoration:underline;display:inline-block;transition:transform .2s;">termos de repasse</a>.
   </p>
 
   <div class="section">
@@ -138,7 +143,7 @@
       <p style="font-size:.9em;">
         Este grupo é <strong>exclusivo para lojistas e investidores</strong>.<br>
         Ao continuar você declara que leu e concorda com o
-        <a href="termo_repasse_site.html" target="_blank" style="color:#FFD700;">Termo de Repasse</a>.
+        <a id="termos-link" href="termo_repasse_site.html" target="_blank" style="color:#FFD700;text-decoration:underline;display:inline-block;transition:transform .2s;">termos de repasse</a>.
       </p>
       <label style="display:flex;align-items:center;gap:8px;margin:12px 0;">
         <input type="checkbox" id="chkConcordo">
