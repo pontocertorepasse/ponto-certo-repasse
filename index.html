@@ -1,76 +1,84 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ponto Certo Repasse</title>
-  <link rel="icon" type="image/png" href="logo_pontocerto.png">
+
+  <!-- Favicon da logo -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #0d0d0d;
-      color: white;
-      text-align: center;
-    }
-    .logo {
-      width: 200px;
-      margin-top: 30px;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    .verificado-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      margin-top: 10px;
-      font-size: 1.1em;
-    }
-    .verificado-container img {
-      height: 40px;
-      width: auto;
-    }
-    .verificado-text {
-      display: flex;
-      flex-direction: column;
-      text-align: left;
-      line-height: 1.2em;
-    }
-    .botao {
-      background-color: #000;
-      color: #FFD700;
-      border: 2px solid #FFD700;
-      border-radius: 8px;
-      padding: 12px 24px;
-      margin: 10px;
-      font-size: 1em;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
-      display: inline-block;
-      text-decoration: none;
-    }
-    .botao:hover {
-      background-color: #FFD700;
-      color: #000;
-    }
+    :root  { --gold:#FFD700; --black:#000; --gray:#AAA; }
+    *      { box-sizing:border-box; }
+    body   { margin:0; font-family:Arial,Helvetica,sans-serif;
+             background:#000; color:#fff; text-align:center; }
+
+    header { padding:30px 20px 10px; }
+    header img { width:190px; animation:pulse 3s infinite; }
+    @keyframes pulse { 0%{transform:scale(1)}50%{transform:scale(1.05)} }
+
+    h1 { margin:14px 0 4px; font-size:1.8em; font-weight:500; }
+
+    .btn-block  { display:flex; flex-direction:column; gap:15px;
+                  align-items:center; margin-top:28px; }
+    .btn-block a{ display:inline-block; width:260px; padding:14px 25px;
+                  border:2px solid var(--gold); border-radius:8px;
+                  background:var(--black); color:var(--gold);
+                  font-weight:bold; text-decoration:none; transition:.25s; }
+    .btn-block a:hover{ background-color: var(--gold); color: var(--black);
+                        transform:scale(1.05); }
+
+    .cbrav { margin:40px auto 25px; display:inline-flex;
+             flex-direction:column; align-items:center;
+             padding:14px 22px; border:1.5px solid var(--gold);
+             border-radius:12px; }
+    .cbrav img { width:140px; margin-bottom:10px; }
+    .cbrav span{ font-size:.9em; }
+
+    .social { margin:40px 0 10px; }
+    .social a{ margin:0 10px; color:var(--gold); font-size:1.8em;
+               text-decoration:none; transition:.2s; }
+    .social a:hover{ color:#fff; }
+
+    footer { margin:40px 0 30px; font-size:.8em; color:var(--gray); }
   </style>
 </head>
 <body>
-  <img src="logo_pontocerto.png" alt="Ponto Certo Logo" class="logo">
-  <div class="verificado-container">
-    <img src="logo_cbrav.png" alt="CBRAV">
-    <div class="verificado-text">
-      <div>empresa verificada</div>
-      <div>pela CBRAV</div>
-    </div>
+
+  <header>
+    <img src="logo_pontocerto.png" alt="Ponto Certo Repasse">
+    <h1>Conectando oportunidades, movendo negócios</h1>
+  </header>
+
+  <div class="btn-block">
+    <a href="https://wa.me/5521969917328" target="_blank">
+      Fale Conosco
+    </a>
+    <a href="#"
+       onclick="
+         if(confirm('Este grupo é exclusivo para lojistas e investidores.\nAo entrar, você confirma que leu e concorda com o Termo de Repasse.')){
+           window.location.href='https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t';
+         }
+         return false;
+       ">
+      Entrar no Grupo VIP
+    </a>
   </div>
-  <a href="https://wa.me/5521969917328" class="botao">Fale Conosco</a>
-  <a href="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t" class="botao">Entrar no Grupo VIP</a>
+
+  <a href="https://www.cbrav.com.br/pontocerto" target="_blank" class="cbrav">
+    <img src="logo_cbrav.png" alt="CBRAV verificada">
+    <span>Empresa verificada pela CBRAV</span>
+  </a>
+
+  <div class="social">
+    <a href="https://www.instagram.com/pontocertorepasse" target="_blank" title="Instagram">📸</a>
+    <a href="https://facebook.com/pontocertorepasse"        target="_blank" title="Facebook">📘</a>
+  </div>
+
+  <footer>
+    © 2024 Ponto Certo Repasse. Todos os direitos reservados.
+  </footer>
+
 </body>
 </html>
