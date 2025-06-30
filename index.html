@@ -33,7 +33,49 @@
     #modalTermo button{padding:10px 22px;border-radius:8px;font-weight:bold;cursor:pointer;margin-top:10px}
     #confirmar{background:#FFD700;border:none;color:#000}
     #fechar{background:transparent;border:none;color:#aaa;margin-left:8px}
-  </style>
+  
+#termos-link:hover {
+  display: inline-block;
+  transform: translateY(-3px);
+  transition: transform 0.2s ease-in-out;
+}
+
+
+.modal-btn {
+  background-color: transparent;
+  color: #FFD700;
+  border: 2px solid #FFD700;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+.modal-btn:hover {
+  background-color: #FFD700;
+  color: #000;
+}
+
+
+.social-icon:hover {
+  transform: scale(1.2);
+  color: #FFD700;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.benefit-box {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-in-out;
+}
+.benefit-box.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+</style>
 <link rel="icon" href="favicon.png" type="image/png">
 </head>
 <body>
@@ -116,5 +158,24 @@ btnGrupo.onclick=e=>{e.preventDefault();modal.style.display="flex";};
 fechar.onclick=()=>{modal.style.display="none";chk.checked=false;};
 confirmar.onclick=()=>{if(!chk.checked){alert("Você precisa marcar que leu e concorda com os termos.");return;}window.location.href=linkGrupo;};
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.benefit-box').forEach(box => {
+    observer.observe(box);
+  });
+});
+</script>
+
 </body>
 </html>
