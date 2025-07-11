@@ -103,7 +103,7 @@
 <a href="https://www.facebook.com/pontocertorepasse" style="margin: 0 8px;" target="_blank"><img alt="Facebook Icon" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.2)'" src="https://cdn-icons-png.flaticon.com/512/733/733547.png" style="height:22px;transition:transform .3s ease;"/></a>
 <a href="mailto:contato@pontocertorepasse.com.br" style="margin: 0 8px;" target="_blank"><img alt="Email Icon" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.2)'" src="https://cdn-icons-png.flaticon.com/512/732/732200.png" style="height:22px;transition:transform .3s ease;"/></a></div>
 <footer>© 2024 Ponto Certo Repasse. Todos os direitos reservados.</footer>
-<div id="modalTermo" style="position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:9999"><div class="box" style="background:#111;border:1px solid #FFD700;border-radius:12px;max-width:420px;width:90%;padding:30px;color:#fff;text-align:left"><h3 style="margin-top:0;color:#FFD700">Confirmação para acesso ao Grupo VIP</h3><p style="font-size:.9em;">Este grupo é exclusivo para lojistas e investidores. Preencha seus dados e aceite o <a href="termo_repasse_site.html" style="color: #FFD700; text-decoration: underline;" target="_blank">termo de repasse</a> para continuar.</p><form action="https://formspree.io/f/movwglvn" method="POST">
+<div id="modalTermo" style="position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:9999"><div class="box" style="background:#111;border:1px solid #FFD700;border-radius:12px;max-width:420px;width:90%;padding:30px;color:#fff;text-align:left"><h3 style="margin-top:0;color:#FFD700">Confirmação para acesso ao Grupo VIP</h3><p style="font-size:.9em;">Este grupo é exclusivo para lojistas e investidores. Preencha seus dados e aceite o <a href="termo_repasse_site.html" style="color: #FFD700; text-decoration: underline;" target="_blank">termo de repasse</a> para continuar.</p><form action="__ROTA_FORMS__" method="POST">
 <label>Nome completo:<br/><input name="nome" required="" style="width:100%;padding:6px;margin:6px 0;border-radius:4px;border:none;" type="text"/></label>
 <label>Telefone:<br/><input name="telefone" required="" style="width:100%;padding:6px;margin:6px 0;border-radius:4px;border:none;" type="text"/></label>
 <label>Email:<br/><input name="email" required="" style="width:100%;padding:6px;margin:6px 0;border-radius:4px;border:none;" type="email"/></label>
@@ -137,12 +137,17 @@ fechar.onclick=()=>{modal.style.display="none";};
     observer.observe(card);
   });
 </script>
+
 <script>
 const formulario = document.querySelector('#modalTermo form');
+const endpointList = ['https://formspree.io/f/movwglvn', 'https://formspree.io/f/mldnqlpd', 'https://formspree.io/f/myzjrpnk', 'https://formspree.io/f/mzzgnvje', 'https://formspree.io/f/xovwglkw', 'https://formspree.io/f/mgvygznz', 'https://formspree.io/f/mpwrvlyj', 'https://formspree.io/f/mkgbdzqq', 'https://formspree.io/f/mvgreqwv', 'https://formspree.io/f/mwpbgqra'];
+let formIndex = parseInt(localStorage.getItem('formIndex') || "0");
+formulario.setAttribute('action', endpointList[formIndex]);
+
 formulario.addEventListener("submit", function(event) {
   event.preventDefault();
   const dados = new FormData(formulario);
-  fetch(formulario.action, {
+  fetch(endpointList[formIndex], {
     method: 'POST',
     body: dados,
     headers: { 'Accept': 'application/json' }
@@ -155,8 +160,11 @@ formulario.addEventListener("submit", function(event) {
         document.getElementById('modalTermo').style.display = "none";
         formulario.querySelector("#confirmacaoEnvio").style.display = "none";
       }, 1500);
+      // Atualiza índice para o próximo formulário
+      localStorage.setItem('formIndex', (formIndex + 1) % endpointList.length);
     }
   });
 });
-</script></body>
+</script>
+</body>
 </html>
