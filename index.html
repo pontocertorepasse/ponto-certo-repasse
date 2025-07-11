@@ -103,29 +103,26 @@
 <a href="https://www.facebook.com/pontocertorepasse" style="margin: 0 8px;" target="_blank"><img alt="Facebook Icon" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.2)'" src="https://cdn-icons-png.flaticon.com/512/733/733547.png" style="height:22px;transition:transform .3s ease;"/></a>
 <a href="mailto:contato@pontocertorepasse.com.br" style="margin: 0 8px;" target="_blank"><img alt="Email Icon" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.2)'" src="https://cdn-icons-png.flaticon.com/512/732/732200.png" style="height:22px;transition:transform .3s ease;"/></a></div>
 <footer>© 2024 Ponto Certo Repasse. Todos os direitos reservados.</footer>
-<div id="modalTermo">
-<div class="box">
-<h3>Confirmação necessária</h3>
-<p style="font-size:.9em;">Este grupo é exclusivo para lojistas e investidores. Ao continuar, você declara que leu e concorda com o <a href="termo_repasse_site.html" style="color: #FFD700; text-decoration: underline;" target="_blank">termo de repasse</a>.</p>
+<div id="modalTermo" style="position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:9999"><div class="box" style="background:#111;border:1px solid #FFD700;border-radius:12px;max-width:420px;width:90%;padding:30px;color:#fff;text-align:left"><h3 style="margin-top:0;color:#FFD700">Confirmação para acesso ao Grupo VIP</h3><p style="font-size:.9em;">Este grupo é exclusivo para lojistas e investidores. Preencha seus dados e aceite o <a href="termo_repasse_site.html" style="color: #FFD700; text-decoration: underline;" target="_blank">termo de repasse</a> para continuar.</p><form action="https://docs.google.com/forms/d/e/1FAIpQLSckyuZekNIbY5ERtSmI5MFSRgXy_FFJDhyO74zp5tFqwrayZA/formResponse" method="POST" target="_blank">
+<label>Nome completo:<br/><input name="entry.123456" required="" style="width:100%;padding:6px;margin:6px 0;border-radius:4px;border:none;" type="text"/></label>
+<label>Telefone:<br/><input name="entry.234567" required="" style="width:100%;padding:6px;margin:6px 0;border-radius:4px;border:none;" type="text"/></label>
+<label>Email:<br/><input name="entry.345678" required="" style="width:100%;padding:6px;margin:6px 0;border-radius:4px;border:none;" type="email"/></label>
 <label style="display:flex;align-items:center;gap:8px;margin:12px 0;">
-<input id="chkConcordo" type="checkbox"/>
+<input id="chkConcordo" required="" type="checkbox"/>
 <span>Li e concordo com o termo de repasse</span>
 </label>
-<button id="confirmar">Continuar</button>
-<button id="fechar">Cancelar</button>
+<div style="text-align:center;margin-top:10px;">
+<button style="padding:10px 22px;border-radius:8px;font-weight:bold;background:#FFD700;border:none;color:#000;" type="submit">Continuar</button>
+<button id="fechar" style="margin-left:10px;padding:10px 22px;border-radius:8px;font-weight:bold;border:2px solid #FFD700;color:#FFD700;background:transparent;" type="button">Cancelar</button>
 </div>
-</div>
+</form></div></div>
 <script>
 const btnGrupo=document.getElementById('btnGrupo');
 const modal=document.getElementById('modalTermo');
 const fechar=document.getElementById('fechar');
-const confirmar=document.getElementById('confirmar');
-const chk=document.getElementById('chkConcordo');
-const linkGrupo="https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3?mode=ac_t";
 btnGrupo.onclick=e=>{e.preventDefault();modal.style.display="flex";};
-fechar.onclick=()=>{modal.style.display="none";chk.checked=false;};
-confirmar.onclick=()=>{if(!chk.checked){alert("Você precisa marcar que leu e concorda com os termos.");return;}window.location.href=linkGrupo;};
-</script>
+fechar.onclick=()=>{modal.style.display="none";};
+        </script>
 <script>
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
