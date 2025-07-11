@@ -105,8 +105,8 @@
 <footer>© 2024 Ponto Certo Repasse. Todos os direitos reservados.</footer>
 <div id="modalTermo" style="position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:9999"><div class="box" style="background:#111;border:1px solid #FFD700;border-radius:12px;max-width:420px;width:90%;padding:30px;color:#fff;text-align:left"><h3 style="margin-top:0;color:#FFD700">Confirmação para acesso ao Grupo VIP</h3><p style="font-size:.9em;">Este grupo é exclusivo para lojistas e investidores. Preencha seus dados e aceite o <a href="termo_repasse_site.html" style="color: #FFD700; text-decoration: underline;" target="_blank">termo de repasse</a> para continuar.</p><form action="__ROTA_FORMS__" method="POST">
 <label>Nome completo:<br/><input name="nome" required="" style="width:100%;padding:6px;margin:6px 0;border-radius:4px;border:none;" type="text"/></label>
-<label>Telefone:<br/><input name="telefone" required="" style="width:100%;padding:6px;margin:6px 0;border-radius:4px;border:none;" type="text"/></label>
-<label>Email:<br/><input name="email" required="" style="width:100%;padding:6px;margin:6px 0;border-radius:4px;border:none;" type="email"/></label>
+<label>Telefone:<br/><input id="telefone" name="telefone" required="" style="width:100%;padding:6px;margin:6px 0;border-radius:4px;border:none;" type="text"/></label>
+<label>Email:<br/><input name="email" style="width:100%;padding:6px;margin:6px 0;border-radius:4px;border:none;" type="email"/></label>
 <label style="display:flex;align-items:center;gap:8px;margin:12px 0;">
 <input required="" type="checkbox"/>
 <span>Li e concordo com o termo de repasse</span>
@@ -137,8 +137,6 @@ fechar.onclick=()=>{modal.style.display="none";};
     observer.observe(card);
   });
 </script>
-
-
 <script>
 const formulario = document.querySelector('#modalTermo form');
 const endpointList = ['https://formspree.io/f/movwglvn', 'https://formspree.io/f/mldnqlpd', 'https://formspree.io/f/myzjrpnk', 'https://formspree.io/f/mzzgnvje', 'https://formspree.io/f/xovwglkw', 'https://formspree.io/f/mgvygznz', 'https://formspree.io/f/mpwrvlyj', 'https://formspree.io/f/mkgbdzqq', 'https://formspree.io/f/mvgreqwv', 'https://formspree.io/f/mwpbgqra'];
@@ -175,6 +173,21 @@ formulario.addEventListener("submit", function(event) {
     });
   };
   tentarEnviar(formIndex);
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const telefone = document.getElementById("telefone");
+  telefone.addEventListener("input", function (e) {
+    let valor = e.target.value.replace(/\D/g, "");
+    if (valor.length > 11) valor = valor.slice(0, 11);
+    let formatado = valor;
+    if (valor.length > 0) formatado = "(" + valor.substring(0, 2);
+    if (valor.length >= 3) formatado += ") " + valor.substring(2, 7);
+    if (valor.length >= 8) formatado += "-" + valor.substring(7, 11);
+    e.target.value = formatado;
+  });
 });
 </script>
 </body>
