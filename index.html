@@ -138,6 +138,7 @@ fechar.onclick=()=>{modal.style.display="none";};
   });
 </script>
 
+
 <script>
 const formulario = document.querySelector('#modalTermo form');
 const endpointList = ['https://formspree.io/f/movwglvn', 'https://formspree.io/f/mldnqlpd', 'https://formspree.io/f/myzjrpnk', 'https://formspree.io/f/mzzgnvje', 'https://formspree.io/f/xovwglkw', 'https://formspree.io/f/mgvygznz', 'https://formspree.io/f/mpwrvlyj', 'https://formspree.io/f/mkgbdzqq', 'https://formspree.io/f/mvgreqwv', 'https://formspree.io/f/mwpbgqra'];
@@ -147,23 +148,33 @@ formulario.setAttribute('action', endpointList[formIndex]);
 formulario.addEventListener("submit", function(event) {
   event.preventDefault();
   const dados = new FormData(formulario);
-  fetch(endpointList[formIndex], {
-    method: 'POST',
-    body: dados,
-    headers: { 'Accept': 'application/json' }
-  }).then(response => {
-    if (response.ok) {
-      formulario.reset();
-      formulario.querySelector("#confirmacaoEnvio").style.display = "block";
-      setTimeout(() => {
-        window.open("https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3", "_blank");
-        document.getElementById('modalTermo').style.display = "none";
-        formulario.querySelector("#confirmacaoEnvio").style.display = "none";
-      }, 1500);
-      // Atualiza índice para o próximo formulário
-      localStorage.setItem('formIndex', (formIndex + 1) % endpointList.length);
+  const tentarEnviar = (index) => {
+    if (index >= endpointList.length) {
+      alert("Formulário temporariamente indisponível. Tente novamente mais tarde.");
+      return;
     }
-  });
+    fetch(endpointList[index], {
+      method: 'POST',
+      body: dados,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        formulario.reset();
+        formulario.querySelector("#confirmacaoEnvio").style.display = "block";
+        setTimeout(() => {
+          window.open("https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3", "_blank");
+          document.getElementById('modalTermo').style.display = "none";
+          formulario.querySelector("#confirmacaoEnvio").style.display = "none";
+        }, 1500);
+        localStorage.setItem('formIndex', (index + 1) % endpointList.length);
+      } else {
+        tentarEnviar(index + 1);
+      }
+    }).catch(() => {
+      tentarEnviar(index + 1);
+    });
+  };
+  tentarEnviar(formIndex);
 });
 </script>
 </body>
