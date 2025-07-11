@@ -138,18 +138,7 @@ fechar.onclick=()=>{modal.style.display="none";};
   });
 </script>
 <script>
-const btnGrupo = document.getElementById('btnGrupo');
-const modal = document.getElementById('modalTermo');
-const fechar = document.getElementById('fechar');
-btnGrupo.onclick = e => {
-  e.preventDefault();
-  modal.style.display = "flex";
-};
-fechar.onclick = () => {
-  modal.style.display = "none";
-};
-
-const formulario = modal.querySelector("form");
+const formulario = document.querySelector('#modalTermo form');
 formulario.addEventListener("submit", function(event) {
   event.preventDefault();
   const dados = new FormData(formulario);
@@ -163,7 +152,7 @@ formulario.addEventListener("submit", function(event) {
       formulario.querySelector("#confirmacaoEnvio").style.display = "block";
       setTimeout(() => {
         window.open("https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3", "_blank");
-        modal.style.display = "none";
+        document.getElementById('modalTermo').style.display = "none";
         formulario.querySelector("#confirmacaoEnvio").style.display = "none";
       }, 1500);
     }
