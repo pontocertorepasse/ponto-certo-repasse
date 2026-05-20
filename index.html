@@ -273,10 +273,11 @@
       top: 0; left: 0; right: 0; height: 2px;
       background: var(--gold);
       transform: scaleX(0); transform-origin: left;
-      transition: transform 0.4s ease;
+      transition: transform 0.6s ease 0.3s;
     }
-    .benefit-card:hover { border-color: rgba(212,160,23,0.3); }
-    .benefit-card:hover::before { transform: scaleX(1); }
+    .benefit-card.show { border-color: rgba(212,160,23,0.3); }
+    .benefit-card.show::before { transform: scaleX(1); }
+    .benefit-card:hover { border-color: rgba(212,160,23,0.5); }
 
     .benefit-num {
       font-family: 'Bebas Neue', sans-serif;
@@ -333,7 +334,7 @@
       border-bottom: 1px solid var(--border);
     }
     .social-inner { max-width: 1100px; margin: 0 auto; }
-    .social-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; flex-wrap: wrap; gap: 20px; }
+    .social-header { display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 48px; gap: 16px; }
 
     .ig-link {
       display: inline-flex; align-items: center; gap: 8px;
@@ -390,7 +391,7 @@
     .footer-left { display: flex; flex-direction: row; align-items: center; gap: 12px; }
     .footer-left img { height: 26px; opacity: 0.75; }
     .footer-copy { font-size: 12px; color: var(--muted); }
-    .hero-logo { height: 90px; margin-bottom: 28px; display: block; animation: logoPulse 3s ease-in-out infinite; }
+    .hero-logo { height: 130px; margin-bottom: 32px; display: block; margin-left: auto; margin-right: auto; animation: logoPulse 3s ease-in-out infinite; }
     .footer-links { display: flex; gap: 24px; align-items: center; }
     .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--gold); }
@@ -609,7 +610,7 @@
         <p class="section-desc fade-up">Exclusivo para lojistas e investidores que buscam negócios sólidos e rentáveis no mercado automotivo.</p>
       </div>
       <div class="benefits-grid">
-        <div class="benefit-card">
+        <div class="benefit-card" style="transition-delay:0s">
           <span class="benefit-num">01</span>
           <div class="benefit-icon-wrap">
             <img src="oferta.png" alt="Ofertas" />
@@ -617,7 +618,7 @@
           <div class="benefit-title">Ofertas Exclusivas</div>
           <p class="benefit-text">Receba ofertas únicas que não estão em nenhum outro lugar. Primeiro acesso antes de qualquer anúncio público.</p>
         </div>
-        <div class="benefit-card">
+        <div class="benefit-card" style="transition-delay:0.15s">
           <span class="benefit-num">02</span>
           <div class="benefit-icon-wrap">
             <img src="assessoria.png" alt="Assessoria" />
@@ -625,7 +626,7 @@
           <div class="benefit-title">Assessoria Completa</div>
           <p class="benefit-text">Documentação, vistoria e segurança em todo o processo. Você compra com tranquilidade e respaldo jurídico.</p>
         </div>
-        <div class="benefit-card">
+        <div class="benefit-card" style="transition-delay:0.3s">
           <span class="benefit-num">03</span>
           <div class="benefit-icon-wrap">
             <img src="negociacao.png" alt="Negociação" />
@@ -676,11 +677,11 @@
         <div>
           <div class="section-label fade-up">Prova Social</div>
           <h2 class="section-title fade-up">QUEM JÁ ESTÁ<br><span>NEGOCIANDO</span></h2>
+          <a href="https://www.instagram.com/pontocertorepasse" target="_blank" rel="noopener" class="ig-link fade-up" style="margin-top:12px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Ver Instagram
+          </a>
         </div>
-        <a href="https://www.instagram.com/pontocertorepasse" target="_blank" rel="noopener" class="ig-link fade-up">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          Ver Instagram
-        </a>
       </div>
       <div class="ig-embed-wrapper fade-up">
         <div class="ig-placeholder">
