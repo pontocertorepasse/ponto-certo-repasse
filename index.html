@@ -387,9 +387,10 @@
     /* ── FOOTER ── */
     footer { border-top: 1px solid var(--border); padding: 40px; background: var(--dark); }
     .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
-    .footer-left { display: flex; flex-direction: column; gap: 10px; }
-    .footer-left img { height: 44px; }
+    .footer-left { display: flex; flex-direction: row; align-items: center; gap: 12px; }
+    .footer-left img { height: 26px; opacity: 0.75; }
     .footer-copy { font-size: 12px; color: var(--muted); }
+    .hero-logo { height: 90px; margin-bottom: 28px; display: block; animation: logoPulse 3s ease-in-out infinite; }
     .footer-links { display: flex; gap: 24px; align-items: center; }
     .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--gold); }
@@ -545,7 +546,7 @@
 
   <!-- NAV -->
   <nav>
-    <img class="logo" src="logo_ponto_certo.png" alt="Ponto Certo Repasse" />
+    <div><!-- espaço vazio para alinhar botão à direita --></div>
     <div class="nav-right">
       <div class="nav-badge">
         <img src="logo_cbrav.png" alt="CBRAV" />
@@ -560,6 +561,7 @@
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="hero-content">
+      <img src="logo_ponto_certo.png" alt="Ponto Certo Repasse" class="hero-logo" />
       <div class="hero-label">
         <span class="dot"></span>
         Grupo VIP · Mercado Automotivo
