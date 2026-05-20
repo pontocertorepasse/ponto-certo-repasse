@@ -1,200 +1,900 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
-<!-- Meta tags para compartilhamento -->
-<meta content="Ponto Certo Repasse" property="og:title"/>
-<meta content="Ofertas exclusivas para lojistas e investidores do mercado automotivo." property="og:description"/>
-<meta content="https://www.pontocertorepasse.com.br/meta-image.jpg" property="og:image"/>
-<meta content="https://www.pontocertorepasse.com.br" property="og:url"/>
-<meta content="website" property="og:type"/>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Ponto Certo Repasse</title>
-<style>
-    body{margin:0;font-family:Arial,sans-serif;background:#000;color:#fff;text-align:center}
-    .logo{margin-top:20px;width:200px;animation:pulse 2s infinite}
-    .descricao{font-style:italic;color:#ccc;font-size:1.1em}
-    .btn,.btn-cbrav{
-        display:inline-flex;align-items:center;justify-content:center;
-        width:260px;margin:12px auto;padding:15px 25px;
-        border-radius:8px;font-size:1em;font-weight:bold;text-decoration:none;
-        background:#000;color:#FFD700;border:2px solid #FFD700;
-        transition:.3s;box-shadow:0 0 0 transparent}
-    .btn:hover,.btn-cbrav:hover{
-        background:#FFD700;color:#000;transform:scale(1.05);
-        box-shadow:0 0 15px #FFD700}
-    .btn img,.btn-cbrav img{height:20px;margin-right:10px}
-    .btn-group-icon{filter:invert(87%) sepia(76%) saturate(421%) hue-rotate(1deg) brightness(101%) contrast(96%);}
-    .aviso{font-size:.9rem;margin-top:10px;padding:0 20px;color:#aaa}
-    .aviso a{color:#FFD700;text-decoration:underline}
-    .section{padding:40px 20px;background:#111;border-top:1px solid #444}
-    .benefit-card{border:1px solid #FFD700;border-radius:12px;padding:20px;margin:20px auto;max-width:400px;background:#1a1a1a}
-    .benefit-icon{width:60px;margin-bottom:10px}
-    footer{padding:20px 10px;font-size:.85em;color:#888;background:#000;border-top:1px solid #222;margin-top:30px}
-    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
-    /* modal */
-    #modalTermo{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:9999}
-    #modalTermo .box{background:#111;border:1px solid #FFD700;border-radius:12px;max-width:380px;width:90%;padding:30px;color:#fff;text-align:left}
-    #modalTermo h3{margin-top:0;color:#FFD700}
-    #modalTermo button{padding:10px 22px;border-radius:8px;font-weight:bold;cursor:pointer;margin-top:10px}
-    #confirmar{background:#FFD700;border:none;color:#000}
-    #fechar{background:transparent;border:none;color:#aaa;margin-left:8px}
-  
-@media (max-width: 768px) {
-  .logo {
-    width: 140px !important;
-  }
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ponto Certo Repasse</title>
 
+  <!-- SEO & Share -->
+  <meta name="description" content="Conectamos lojistas e investidores às melhores oportunidades do mercado automotivo. Ofertas exclusivas, segurança e assessoria completa." />
+  <meta property="og:title" content="Ponto Certo Repasse" />
+  <meta property="og:description" content="Ofertas exclusivas para lojistas e investidores do mercado automotivo." />
+  <meta property="og:image" content="https://www.pontocertorepasse.com.br/meta-image.jpg" />
+  <meta property="og:url" content="https://www.pontocertorepasse.com.br" />
+  <meta property="og:type" content="website" />
 
-.benefit-card {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.6s ease-out;
-}
-.benefit-card.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
 
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-#confirmar, #fechar {
-  background: transparent;
-  color: #FFD700;
-  border: 2px solid #FFD700;
-  border-radius: 8px;
-  padding: 10px 22px;
-  margin-top: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-#confirmar:hover, #fechar:hover {
-  background: #FFD700;
-  color: #000;
-}
+    :root {
+      --black: #0a0a0a;
+      --dark: #111318;
+      --card: #16191f;
+      --border: #23272f;
+      --gold: #d4a017;
+      --gold-light: #f0c040;
+      --gold-dim: rgba(212,160,23,0.15);
+      --white: #f5f3ee;
+      --muted: #8a8f99;
+      --green: #22c55e;
+    }
 
-</style>
-<link href="favicon.png" rel="icon" type="image/png"/>
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(10,10,10,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav .logo { height: 36px; animation: logoPulse 3s ease-in-out infinite; }
+
+    @keyframes logoPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+
+    .nav-badge {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12px; color: var(--muted); letter-spacing: 0.5px;
+    }
+    .nav-badge img { height: 26px; opacity: 0.85; }
+
+    .btn-nav {
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-nav:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      padding: 120px 40px 80px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 70% 50%, rgba(212,160,23,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(212,160,23,0.04) 0%, transparent 60%),
+        linear-gradient(160deg, #0d0f13 0%, #0a0a0a 100%);
+    }
+
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(212,160,23,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,160,23,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 60% 50%, black 20%, transparent 80%);
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 680px; }
+
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(212,160,23,0.3);
+      color: var(--gold-light);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 6px 14px; margin-bottom: 28px;
+    }
+
+    .hero-label .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(52px, 8vw, 96px);
+      line-height: 0.95;
+      letter-spacing: 2px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    h1 span { color: var(--gold); }
+
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.6;
+      max-width: 520px;
+      margin-bottom: 40px;
+      margin-top: 16px;
+    }
+
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 15px;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 16px 32px;
+      border: none; cursor: pointer; text-decoration: none;
+      transition: all 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .btn-primary::after {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(255,255,255,0.15);
+      transform: translateX(-100%); transition: transform 0.3s;
+    }
+    .btn-primary:hover::after { transform: translateX(0); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(212,160,23,0.35); }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent; color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600; font-size: 15px;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 15px 28px;
+      border: 1px solid var(--border);
+      cursor: pointer; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-stats {
+      position: relative; z-index: 1;
+      display: flex; gap: 0;
+      margin-top: 60px;
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .stat { padding-right: 40px; margin-right: 40px; border-right: 1px solid var(--border); }
+    .stat:last-child { border-right: none; }
+    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: var(--gold); line-height: 1; }
+    .stat-label { font-size: 12px; color: var(--muted); font-weight: 500; letter-spacing: 0.5px; margin-top: 4px; }
+
+    /* ── SECTIONS ── */
+    section { position: relative; z-index: 1; }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    .section-label::before {
+      content: ''; display: block; width: 28px; height: 1px; background: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 60px);
+      letter-spacing: 1.5px; line-height: 1.05;
+      color: var(--white); margin-bottom: 16px;
+    }
+    .section-title span { color: var(--gold); }
+
+    .section-desc { font-size: 16px; color: var(--muted); font-weight: 300; line-height: 1.7; max-width: 560px; }
+
+    /* ── BENEFITS ── */
+    .benefits {
+      padding: 100px 40px;
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .benefits-inner { max-width: 1100px; margin: 0 auto; }
+    .benefits-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 60px; flex-wrap: wrap; gap: 24px;
+    }
+
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+
+    .benefit-card {
+      background: var(--card);
+      padding: 40px 36px;
+      border: 1px solid var(--border);
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s, opacity 0.6s ease-out, transform 0.6s ease-out;
+      opacity: 0; transform: translateY(24px);
+    }
+    .benefit-card.show { opacity: 1; transform: translateY(0); }
+    .benefit-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: var(--gold);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .benefit-card:hover { border-color: rgba(212,160,23,0.3); }
+    .benefit-card:hover::before { transform: scaleX(1); }
+
+    .benefit-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 72px; color: rgba(212,160,23,0.07);
+      line-height: 1; position: absolute; top: 16px; right: 24px;
+    }
+
+    .benefit-icon-wrap {
+      width: 56px; height: 56px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(212,160,23,0.2);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+    }
+    .benefit-icon-wrap img { width: 30px; height: 30px; object-fit: contain; filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(5deg); }
+
+    .benefit-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 20px;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      color: var(--white); margin-bottom: 10px;
+    }
+    .benefit-text { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+    /* ── HOW IT WORKS ── */
+    .how { padding: 100px 40px; }
+    .how-inner { max-width: 1100px; margin: 0 auto; }
+
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 60px; position: relative; }
+    .steps::before {
+      content: ''; position: absolute;
+      top: 28px; left: calc(12.5% + 20px); right: calc(12.5% + 20px);
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--border) 100%);
+    }
+
+    .step { padding: 0 24px; text-align: center; }
+    .step-circle {
+      width: 56px; height: 56px;
+      border: 2px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--gold);
+      background: var(--black); position: relative; z-index: 1;
+    }
+    .step-title { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--white); margin-bottom: 8px; }
+    .step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ── SOCIAL PROOF ── */
+    .social {
+      padding: 100px 40px;
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .social-inner { max-width: 1100px; margin: 0 auto; }
+    .social-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; flex-wrap: wrap; gap: 20px; }
+
+    .ig-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--gold); font-size: 13px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase; text-decoration: none;
+      border-bottom: 1px solid rgba(212,160,23,0.3); padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .ig-link:hover { border-color: var(--gold); }
+
+    .ig-embed-wrapper { background: var(--card); border: 1px solid var(--border); padding: 40px; text-align: center; }
+    .ig-placeholder { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+    .ig-icon-big {
+      width: 64px; height: 64px;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      border-radius: 16px; display: flex; align-items: center; justify-content: center;
+    }
+
+    .ig-text-main { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--white); }
+    .ig-text-sub { font-size: 14px; color: var(--muted); max-width: 400px; line-height: 1.6; }
+
+    .btn-ig {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: #fff;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 14px 28px; text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-ig:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    /* ── CTA FINAL ── */
+    .cta-section { padding: 100px 40px; position: relative; overflow: hidden; }
+    .cta-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(212,160,23,0.1) 0%, transparent 70%); }
+    .cta-inner { max-width: 700px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+    .cta-inner h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(44px, 6vw, 72px); letter-spacing: 2px; line-height: 1; margin-bottom: 20px; }
+    .cta-inner p { font-size: 16px; color: var(--muted); line-height: 1.7; margin-bottom: 40px; }
+    .cta-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+
+    .cbrav-badge {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--card); border: 1px solid var(--border);
+      padding: 10px 20px; margin-top: 32px;
+      font-size: 12px; color: var(--muted);
+      text-decoration: none;
+    }
+    .cbrav-badge img { height: 24px; filter: brightness(0.8); }
+
+    /* ── FOOTER ── */
+    footer { border-top: 1px solid var(--border); padding: 40px; background: var(--dark); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; }
+    .footer-left { display: flex; flex-direction: column; gap: 10px; }
+    .footer-left img { height: 32px; filter: brightness(0.7); }
+    .footer-copy { font-size: 12px; color: var(--muted); }
+    .footer-links { display: flex; gap: 24px; align-items: center; }
+    .footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-socials { display: flex; gap: 16px; }
+    .footer-socials a {
+      width: 36px; height: 36px; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); text-decoration: none; transition: border-color 0.2s, color 0.2s;
+    }
+    .footer-socials a:hover { border-color: var(--gold); color: var(--gold); }
+    .footer-socials a img { height: 16px; filter: brightness(0.6); transition: filter 0.2s; }
+    .footer-socials a:hover img { filter: brightness(1) sepia(1) saturate(3) hue-rotate(5deg); }
+
+    /* ── MODAL ── */
+    #modalTermo {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.88);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center; justify-content: center;
+      z-index: 9999; padding: 20px;
+    }
+
+    .modal-box {
+      background: var(--dark);
+      border: 1px solid var(--border);
+      width: 100%; max-width: 480px;
+      position: relative;
+      animation: modalIn 0.3s ease;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-header {
+      padding: 28px 32px 20px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .modal-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--gold-dim); color: var(--gold);
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 4px 10px; margin-bottom: 10px;
+    }
+
+    .modal-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 1.5px; color: var(--white); }
+    .modal-subtitle { font-size: 13px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+
+    .modal-close {
+      position: absolute; top: 24px; right: 24px;
+      background: none; border: 1px solid var(--border);
+      color: var(--muted); cursor: pointer;
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; transition: border-color 0.2s, color 0.2s;
+    }
+    .modal-close:hover { border-color: var(--gold); color: var(--white); }
+
+    .modal-body { padding: 24px 32px 32px; }
+
+    .form-group { margin-bottom: 18px; }
+    .form-label { display: block; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; }
+
+    .form-input {
+      width: 100%; background: var(--black);
+      border: 1px solid var(--border); color: var(--white);
+      font-family: 'Barlow', sans-serif; font-size: 15px;
+      padding: 12px 14px; outline: none; transition: border-color 0.2s;
+      border-radius: 0;
+    }
+    .form-input:focus { border-color: var(--gold); }
+    .form-input::placeholder { color: rgba(138,143,153,0.45); }
+
+    .form-check { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 24px; }
+    .form-check input[type="checkbox"] { width: 17px; height: 17px; accent-color: var(--gold); margin-top: 3px; flex-shrink: 0; cursor: pointer; }
+    .form-check-label { font-size: 12px; color: var(--muted); line-height: 1.6; }
+    .form-check-label a { color: var(--gold); text-decoration: none; }
+    .form-check-label a:hover { text-decoration: underline; }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--gold); color: var(--black);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 15px;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 15px; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-submit:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    #cancelar {
+      width: 100%; margin-top: 10px;
+      background: transparent; color: var(--muted);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600; font-size: 14px; letter-spacing: 1px;
+      padding: 10px; border: 1px solid var(--border); cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    #cancelar:hover { border-color: var(--gold); color: var(--white); }
+
+    #confirmacaoEnvio {
+      display: none; flex-direction: column;
+      align-items: center; gap: 14px; text-align: center; padding: 16px 0;
+    }
+    .success-icon {
+      width: 52px; height: 52px;
+      background: rgba(34,197,94,0.1); border: 1px solid var(--green);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    }
+    .success-title { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--white); letter-spacing: 1px; }
+    .success-text { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ── FADE UP ── */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 13px 20px; }
+      .nav-badge { display: none; }
+      .hero { padding: 100px 20px 60px; }
+      .hero-stats { flex-wrap: wrap; gap: 20px; }
+      .stat { border-right: none; padding-right: 0; margin-right: 0; border-bottom: 1px solid var(--border); padding-bottom: 14px; }
+      .stat:last-child { border-bottom: none; }
+      .benefits { padding: 60px 20px; }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .how { padding: 60px 20px; }
+      .steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .steps::before { display: none; }
+      .social { padding: 60px 20px; }
+      .ig-embed-wrapper { padding: 28px 20px; }
+      .cta-section { padding: 60px 20px; }
+      footer { padding: 32px 20px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .modal-header { padding: 22px 22px 16px; }
+      .modal-body { padding: 20px 22px 26px; }
+    }
+
+    @media (max-width: 500px) {
+      h1 { font-size: 48px; }
+      .steps { grid-template-columns: 1fr; }
+      nav .logo { height: 28px; }
+    }
+  </style>
 </head>
 <body>
-<img alt="Logo Ponto Certo" class="logo" src="logo_ponto_certo.png"/>
-<p class="descricao"><span style="color: #FFD700; font-weight: 800; font-size: 1.4em; font-family: 'Arial Black', sans-serif; text-shadow: 1px 1px 2px #000;">Conectamos lojistas e investidores às melhores oportunidades do mercado automotivo.</span><br/><br/>Ofertas de veículos de todo o Brasil, sempre com preços atrativos e segurança nas negociações.</p>
-<div style="height:30px;"></div>
-<a class="btn" href="#" id="btnGrupo">
-<img alt="Grupo Icon" class="btn-group-icon" src="https://cdn-icons-png.flaticon.com/512/3064/3064197.png"/>
-    Entrar no Grupo VIP
-  </a>
-<a class="btn" href="https://wa.me/5521969917328">
-<img alt="Whatsapp Icon" src="https://cdn-icons-png.flaticon.com/512/5968/5968841.png"/>
-    Fale Conosco
-  </a><a class="btn" href="https://www.cbrav.com.br/pontocerto" style="" target="_blank">
-<img alt="Selo CBRAV" src="logo_cbrav.png" style="height:24px;"/>Verificado CBRAV</a>
-<p class="aviso">Exclusivo para lojistas e investidores. Ao entrar, você declara ter lido e concordado com o <a href="termo_repasse_site.html" id="termos-link" style="color:#FFD700;text-decoration:underline;display:inline-block;transition:transform .2s;" target="_blank">termo de repasse</a>.</p>
-<div class="section">
-<h2>Benefícios do <span style="color:#FFD700;">Grupo VIP</span></h2>
-<div class="benefit-card"><img alt="Ofertas" class="benefit-icon" src="oferta.png"/><h3>Ofertas Exclusivas</h3><p>Receba ofertas únicas que não estão em nenhum outro lugar.</p></div>
-<div class="benefit-card"><img alt="Assessoria" class="benefit-icon" src="assessoria.png"/><h3>Assessoria Completa</h3><p>Documentação, vistoria e segurança em todo processo.</p></div>
-<div class="benefit-card"><img alt="Negociação" class="benefit-icon" src="negociacao.png"/><h3>Negociações Rápidas</h3><p>Fale direto com quem vende e acelere seus negócios.</p></div>
-</div>
-<div style="margin-top:30px;">
-<a href="https://www.instagram.com/pontocertorepasse" style="margin: 0 8px;" target="_blank"><img alt="Instagram Icon" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.2)'" src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" style="height:22px;transition:transform .3s ease;"/></a>
-<a href="https://www.facebook.com/pontocertorepasse" style="margin: 0 8px;" target="_blank"><img alt="Facebook Icon" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.2)'" src="https://cdn-icons-png.flaticon.com/512/733/733547.png" style="height:22px;transition:transform .3s ease;"/></a>
-<a href="mailto:contato@pontocertorepasse.com.br" style="margin: 0 8px;" target="_blank"><img alt="Email Icon" onmouseout="this.style.transform='scale(1)'" onmouseover="this.style.transform='scale(1.2)'" src="https://cdn-icons-png.flaticon.com/512/732/732200.png" style="height:22px;transition:transform .3s ease;"/></a></div>
-<footer>© 2024 Ponto Certo Repasse. Todos os direitos reservados.</footer>
-<div id="modalTermo" style="position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:9999"><div class="box" style="background:#111;border:1px solid #FFD700;border-radius:12px;max-width:420px;width:90%;padding:30px;color:#fff;text-align:left"><h3 style="margin-top:0;color:#FFD700">Confirmação para acesso ao Grupo VIP</h3><p style="font-size:.9em;">Este grupo é exclusivo para lojistas e investidores. Preencha seus dados e aceite o <a href="termo_repasse_site.html" style="color: #FFD700; text-decoration: underline;" target="_blank">termo de repasse</a> para continuar.</p><form action="__ROTA_FORMS__" method="POST">
-<label>Nome completo:<br/><input name="nome" required="" style="width:100%;padding:6px;margin:6px 0;border-radius:4px;border:none;" type="text"/></label>
-<label>Telefone:<br/><input id="telefone" name="telefone" required="" style="width:100%;padding:6px;margin:6px 0;border-radius:4px;border:none;" type="text"/></label>
-<label>Email:<br/><input name="email" style="width:100%;padding:6px;margin:6px 0;border-radius:4px;border:none;" type="email"/></label>
-<label style="display:flex;align-items:center;gap:8px;margin:12px 0;">
-<input required="" type="checkbox"/>
-<span>Li e concordo com o termo de repasse</span>
-</label>
-<div style="text-align:center;margin-top:10px;">
-<button style="padding:10px 22px;border-radius:8px;font-weight:bold;background:#FFD700;border:none;color:#000;" type="submit">Enviar</button>
-<button id="fechar" style="margin-left:10px;padding:10px 22px;border-radius:8px;font-weight:bold;border:2px solid #FFD700;color:#FFD700;background:transparent;" type="button">Cancelar</button>
-</div>
-<p id="confirmacaoEnvio" style="display:none;margin-top:10px;color:#0f0;text-align:center;">Enviado com sucesso!</p>
-</form></div></div>
-<script>
-const btnGrupo=document.getElementById('btnGrupo');
-const modal=document.getElementById('modalTermo');
-const fechar=document.getElementById('fechar');
-btnGrupo.onclick=e=>{e.preventDefault();modal.style.display="flex";};
-fechar.onclick=()=>{modal.style.display="none";};
-        </script>
-<script>
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
+
+  <!-- NAV -->
+  <nav>
+    <img class="logo" src="logo_ponto_certo.png" alt="Ponto Certo Repasse" />
+    <div class="nav-right">
+      <div class="nav-badge">
+        <img src="logo_cbrav.png" alt="CBRAV" />
+        Verificado CBRAV
+      </div>
+      <a href="#" class="btn-nav" id="btnGrupoNav">Entrar no Grupo VIP</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-label">
+        <span class="dot"></span>
+        Grupo VIP · Mercado Automotivo
+      </div>
+      <h1>REPASSE<br><span>SEM</span><br>RISCO</h1>
+      <p class="hero-sub">
+        Conectamos lojistas e investidores às melhores oportunidades do Brasil — com preço atrativo, assessoria completa e segurança em cada negociação.
+      </p>
+      <div class="hero-ctas">
+        <a href="#" class="btn-primary" id="btnGrupoHero">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Entrar no Grupo VIP
+        </a>
+        <a href="https://wa.me/5521969917328" class="btn-secondary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          Fale Conosco
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-stats fade-up">
+      <div class="stat">
+        <div class="stat-num">+500</div>
+        <div class="stat-label">Membros no Grupo</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Todo BR</div>
+        <div class="stat-label">Ofertas de todo o Brasil</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Verificado CBRAV</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+    <div class="benefits-inner">
+      <div class="benefits-header">
+        <div>
+          <div class="section-label fade-up">Diferenciais</div>
+          <h2 class="section-title fade-up">POR QUE ENTRAR<br><span>NO GRUPO VIP</span></h2>
+        </div>
+        <p class="section-desc fade-up">Exclusivo para lojistas e investidores que buscam negócios sólidos e rentáveis no mercado automotivo.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <span class="benefit-num">01</span>
+          <div class="benefit-icon-wrap">
+            <img src="oferta.png" alt="Ofertas" />
+          </div>
+          <div class="benefit-title">Ofertas Exclusivas</div>
+          <p class="benefit-text">Receba ofertas únicas que não estão em nenhum outro lugar. Primeiro acesso antes de qualquer anúncio público.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-num">02</span>
+          <div class="benefit-icon-wrap">
+            <img src="assessoria.png" alt="Assessoria" />
+          </div>
+          <div class="benefit-title">Assessoria Completa</div>
+          <p class="benefit-text">Documentação, vistoria e segurança em todo o processo. Você compra com tranquilidade e respaldo jurídico.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-num">03</span>
+          <div class="benefit-icon-wrap">
+            <img src="negociacao.png" alt="Negociação" />
+          </div>
+          <div class="benefit-title">Negociações Rápidas</div>
+          <p class="benefit-text">Fale direto com quem vende, sem intermediários. Do interesse ao fechamento no menor tempo possível.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <div class="how-inner">
+      <div style="text-align:center">
+        <div class="section-label fade-up" style="justify-content:center">Como funciona</div>
+        <h2 class="section-title fade-up" style="text-align:center">SIMPLES DO<br><span>INÍCIO AO FIM</span></h2>
+      </div>
+      <div class="steps">
+        <div class="step fade-up">
+          <div class="step-circle">01</div>
+          <div class="step-title">Preencha o Cadastro</div>
+          <p class="step-desc">Informe seu nome, telefone e e-mail para solicitar o acesso ao grupo exclusivo.</p>
+        </div>
+        <div class="step fade-up" style="transition-delay:0.1s">
+          <div class="step-circle">02</div>
+          <div class="step-title">Aceite o Termo</div>
+          <p class="step-desc">Leia e concorde com o Termo de Repasse, garantindo segurança jurídica para todos.</p>
+        </div>
+        <div class="step fade-up" style="transition-delay:0.2s">
+          <div class="step-circle">03</div>
+          <div class="step-title">Acesse o Grupo</div>
+          <p class="step-desc">Após o envio, você é redirecionado automaticamente para o Grupo VIP no WhatsApp.</p>
+        </div>
+        <div class="step fade-up" style="transition-delay:0.3s">
+          <div class="step-circle">04</div>
+          <div class="step-title">Feche Negócio</div>
+          <p class="step-desc">Escolha a oferta ideal e conte com nossa assessoria em todo o processo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="social">
+    <div class="social-inner">
+      <div class="social-header">
+        <div>
+          <div class="section-label fade-up">Prova Social</div>
+          <h2 class="section-title fade-up">QUEM JÁ ESTÁ<br><span>NEGOCIANDO</span></h2>
+        </div>
+        <a href="https://www.instagram.com/pontocertorepasse" target="_blank" rel="noopener" class="ig-link fade-up">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Ver Instagram
+        </a>
+      </div>
+      <div class="ig-embed-wrapper fade-up">
+        <div class="ig-placeholder">
+          <div class="ig-icon-big">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <p class="ig-text-main">@pontocertorepasse</p>
+          <p class="ig-text-sub">Acompanhe depoimentos reais, bastidores das negociações e ofertas em destaque direto no nosso Instagram.</p>
+          <a href="https://www.instagram.com/pontocertorepasse" target="_blank" rel="noopener" class="btn-ig">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Ver Depoimentos no Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="cta-inner">
+      <div class="section-label fade-up" style="justify-content:center">Acesso Exclusivo</div>
+      <h2 class="fade-up">PRONTO PARA<br><span style="color:var(--gold)">NEGOCIAR MELHOR?</span></h2>
+      <p class="fade-up">Junte-se a centenas de lojistas e investidores que já recebem as melhores oportunidades do mercado automotivo direto no celular.</p>
+      <div class="cta-btns fade-up">
+        <a href="#" class="btn-primary" id="btnGrupoCta">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Solicitar Acesso VIP
+        </a>
+        <a href="https://wa.me/5521969917328" class="btn-secondary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          Tirar Dúvidas
+        </a>
+      </div>
+      <div class="fade-up">
+        <a href="https://www.cbrav.com.br/pontocerto" target="_blank" rel="noopener" class="cbrav-badge">
+          <img src="logo_cbrav.png" alt="CBRAV" />
+          Empresa verificada e registrada na CBRAV
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <img src="logo_ponto_certo.png" alt="Ponto Certo Repasse" />
+        <span class="footer-copy">© 2024 Ponto Certo Repasse. Todos os direitos reservados.</span>
+      </div>
+      <div class="footer-links">
+        <a href="termo_repasse_site.html" target="_blank">Termo de Repasse</a>
+        <a href="https://wa.me/5521969917328" target="_blank">WhatsApp</a>
+        <a href="mailto:contato@pontocertorepasse.com.br">E-mail</a>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/pontocertorepasse" target="_blank" rel="noopener" title="Instagram">
+          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" />
+        </a>
+        <a href="https://www.facebook.com/pontocertorepasse" target="_blank" rel="noopener" title="Facebook">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+        </a>
+        <a href="mailto:contato@pontocertorepasse.com.br" title="E-mail">
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="modalTermo">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-tag">
+          <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+          Acesso Exclusivo
+        </div>
+        <h3 class="modal-title">SOLICITAR ACESSO VIP</h3>
+        <p class="modal-subtitle">Preencha seus dados e aceite o <a href="termo_repasse_site.html" target="_blank" style="color:var(--gold);text-decoration:none;">Termo de Repasse</a> para entrar no grupo.</p>
+        <button class="modal-close" id="fecharX">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="formCadastro">
+          <div class="form-group">
+            <label class="form-label" for="nome">Nome Completo</label>
+            <input class="form-input" type="text" id="nome" name="nome" placeholder="Seu nome completo" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="telefone">Telefone / WhatsApp</label>
+            <input class="form-input" type="text" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">E-mail</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="seu@email.com" />
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="termoCheck" required />
+            <label class="form-check-label" for="termoCheck">
+              Li e concordo com o <a href="termo_repasse_site.html" target="_blank">Termo de Repasse</a>. Declaro ser lojista ou investidor no mercado automotivo.
+            </label>
+          </div>
+          <button class="btn-submit" type="submit" id="btnEnviar">Enviar e Entrar no Grupo</button>
+          <button type="button" id="cancelar">Cancelar</button>
+        </form>
+
+        <div id="confirmacaoEnvio">
+          <div class="success-icon">
+            <svg width="24" height="24" fill="none" stroke="#22c55e" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <p class="success-title">CADASTRO ENVIADO!</p>
+          <p class="success-text">Redirecionando para o Grupo VIP no WhatsApp…</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    // ── MODAL OPEN/CLOSE ──
+    const modal = document.getElementById('modalTermo');
+    const abrirModal = e => { e.preventDefault(); modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; };
+    const fecharModal = () => { modal.style.display = 'none'; document.body.style.overflow = ''; };
+
+    document.getElementById('btnGrupoNav').addEventListener('click', abrirModal);
+    document.getElementById('btnGrupoHero').addEventListener('click', abrirModal);
+    document.getElementById('btnGrupoCta').addEventListener('click', abrirModal);
+    document.getElementById('fecharX').addEventListener('click', fecharModal);
+    document.getElementById('cancelar').addEventListener('click', fecharModal);
+    modal.addEventListener('click', e => { if (e.target === modal) fecharModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharModal(); });
+
+    // ── FORMULÁRIO COM ROTAÇÃO FORMSPREE (lógica original preservada) ──
+    const endpointList = [
+      'https://formspree.io/f/movwglvn',
+      'https://formspree.io/f/mldnqlpd',
+      'https://formspree.io/f/myzjrpnk',
+      'https://formspree.io/f/mzzgnvje',
+      'https://formspree.io/f/xovwglkw',
+      'https://formspree.io/f/mgvygznz',
+      'https://formspree.io/f/mpwrvlyj',
+      'https://formspree.io/f/mkgbdzqq',
+      'https://formspree.io/f/mvgreqwv',
+      'https://formspree.io/f/mwpbgqra'
+    ];
+
+    let formIndex = parseInt(localStorage.getItem('formIndex') || '0');
+    const formulario = document.getElementById('formCadastro');
+
+    formulario.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const btnEnviar = document.getElementById('btnEnviar');
+      btnEnviar.disabled = true;
+      btnEnviar.textContent = 'Enviando…';
+
+      const dados = new FormData(formulario);
+
+      const tentarEnviar = (index) => {
+        if (index >= endpointList.length) {
+          alert('Formulário temporariamente indisponível. Tente novamente mais tarde.');
+          btnEnviar.disabled = false;
+          btnEnviar.textContent = 'Enviar e Entrar no Grupo';
+          return;
+        }
+        fetch(endpointList[index], {
+          method: 'POST',
+          body: dados,
+          headers: { 'Accept': 'application/json' }
+        }).then(response => {
+          if (response.ok) {
+            formulario.reset();
+            formulario.style.display = 'none';
+            const confirmacao = document.getElementById('confirmacaoEnvio');
+            confirmacao.style.display = 'flex';
+            localStorage.setItem('formIndex', (index + 1) % endpointList.length);
+            setTimeout(() => {
+              window.open('https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3', '_blank');
+              fecharModal();
+              formulario.style.display = 'block';
+              confirmacao.style.display = 'none';
+              btnEnviar.disabled = false;
+              btnEnviar.textContent = 'Enviar e Entrar no Grupo';
+            }, 1500);
+          } else {
+            tentarEnviar(index + 1);
+          }
+        }).catch(() => {
+          tentarEnviar(index + 1);
+        });
+      };
+
+      tentarEnviar(formIndex);
     });
-  }, { threshold: 0.1 });
 
-  document.querySelectorAll('.benefit-card').forEach(card => {
-    observer.observe(card);
-  });
-</script>
-<script>
-const formulario = document.querySelector('#modalTermo form');
-const endpointList = ['https://formspree.io/f/movwglvn', 'https://formspree.io/f/mldnqlpd', 'https://formspree.io/f/myzjrpnk', 'https://formspree.io/f/mzzgnvje', 'https://formspree.io/f/xovwglkw', 'https://formspree.io/f/mgvygznz', 'https://formspree.io/f/mpwrvlyj', 'https://formspree.io/f/mkgbdzqq', 'https://formspree.io/f/mvgreqwv', 'https://formspree.io/f/mwpbgqra'];
-let formIndex = parseInt(localStorage.getItem('formIndex') || "0");
-formulario.setAttribute('action', endpointList[formIndex]);
-
-formulario.addEventListener("submit", function(event) {
-  event.preventDefault();
-  const dados = new FormData(formulario);
-  const tentarEnviar = (index) => {
-    if (index >= endpointList.length) {
-      alert("Formulário temporariamente indisponível. Tente novamente mais tarde.");
-      return;
-    }
-    fetch(endpointList[index], {
-      method: 'POST',
-      body: dados,
-      headers: { 'Accept': 'application/json' }
-    }).then(response => {
-      if (response.ok) {
-        formulario.reset();
-        formulario.querySelector("#confirmacaoEnvio").style.display = "block";
-        setTimeout(() => {
-          window.open("https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3", "_blank");
-          document.getElementById('modalTermo').style.display = "none";
-          formulario.querySelector("#confirmacaoEnvio").style.display = "none";
-        }, 1500);
-        localStorage.setItem('formIndex', (index + 1) % endpointList.length);
-      } else {
-        tentarEnviar(index + 1);
-      }
-    }).catch(() => {
-      tentarEnviar(index + 1);
+    // ── MÁSCARA TELEFONE ──
+    document.getElementById('telefone').addEventListener('input', function(e) {
+      let valor = e.target.value.replace(/\D/g, '');
+      if (valor.length > 11) valor = valor.slice(0, 11);
+      let formatado = '';
+      if (valor.length > 0) formatado = '(' + valor.substring(0, 2);
+      if (valor.length >= 3) formatado += ') ' + valor.substring(2, 7);
+      if (valor.length >= 8) formatado += '-' + valor.substring(7, 11);
+      e.target.value = formatado;
     });
-  };
-  tentarEnviar(formIndex);
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const telefone = document.getElementById("telefone");
-  telefone.addEventListener("input", function (e) {
-    let valor = e.target.value.replace(/\D/g, "");
-    if (valor.length > 11) valor = valor.slice(0, 11);
-    let formatado = valor;
-    if (valor.length > 0) formatado = "(" + valor.substring(0, 2);
-    if (valor.length >= 3) formatado += ") " + valor.substring(2, 7);
-    if (valor.length >= 8) formatado += "-" + valor.substring(7, 11);
-    e.target.value = formatado;
-  });
-});
-</script>
 
-<script>
-  window.chatbaseConfig = {
-    chatbotId: "qjCkWlT9nYtrgRQ3CPupM",
-  };
-</script>
-<script chatbotid="qjCkWlT9nYtrgRQ3CPupM" defer="" id="chatbase-script" src="https://www.chatbase.co/embed.min.js"></script>
+    // ── SCROLL ANIMATIONS ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          e.target.classList.add('show'); // compatível com benefit-card
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up, .benefit-card').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
