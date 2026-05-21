@@ -857,7 +857,7 @@
             confirmacao.style.display = 'flex';
             localStorage.setItem('formIndex', (index + 1) % endpointList.length);
             setTimeout(() => {
-              window.open('https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3', '_blank');
+              window.location.href = 'https://chat.whatsapp.com/K3hev5U2LTM4QPSsbsLaS3';
               fecharModal();
               formulario.style.display = 'block';
               confirmacao.style.display = 'none';
