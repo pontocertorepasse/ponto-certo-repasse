@@ -1,116 +1,555 @@
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Termo de Repasse - Ponto Certo</title>
+  <title>Termo de Repasse – Ponto Certo Repasse</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet" />
+
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --dark: #111318;
+      --card: #16191f;
+      --border: #23272f;
+      --gold: #d4a017;
+      --gold-light: #f0c040;
+      --gold-dim: rgba(212,160,23,0.12);
+      --white: #f5f3ee;
+      --muted: #8a8f99;
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      margin: 0;
-      padding: 0;
-      background-color: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.4;
     }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav img.logo { height: 36px; }
+
+    .btn-nav {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--gold);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 9px 18px; border: 1px solid rgba(212,160,23,0.4);
+      text-decoration: none; transition: all 0.2s;
+    }
+    .btn-nav:hover { background: var(--gold-dim); border-color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 130px 40px 70px;
+      position: relative; overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(212,160,23,0.07) 0%, transparent 70%),
+        linear-gradient(160deg, #0d0f13 0%, #0a0a0a 100%);
+    }
+
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(212,160,23,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,160,23,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 100% at 80% 50%, black 10%, transparent 80%);
+    }
+
+    .hero-inner {
+      max-width: 860px; margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+
+    .hero-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold-dim); border: 1px solid rgba(212,160,23,0.3);
+      color: var(--gold-light); font-size: 11px; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 6px 14px; margin-bottom: 24px;
+    }
+
+    .hero-label .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold-light);
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
     h1 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #FFD700;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 6vw, 72px);
+      letter-spacing: 2px; line-height: 1;
+      color: var(--white); margin-bottom: 20px;
     }
-    h2 {
-      color: #FFD700;
-      margin-top: 2rem;
+    h1 span { color: var(--gold); }
+
+    .hero-meta {
+      display: flex; flex-wrap: wrap; gap: 24px;
+      margin-top: 32px;
     }
-    strong {
-      color: #FFD700;
+
+    .meta-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--muted);
     }
-    ul {
-      padding-left: 1.2rem;
+    .meta-item svg { color: var(--gold); flex-shrink: 0; }
+
+    /* ── CONTENT ── */
+    .content-wrap {
+      max-width: 860px; margin: 0 auto;
+      padding: 60px 40px 80px;
+      position: relative; z-index: 1;
     }
-    li {
-      margin-bottom: 0.6rem;
+
+    /* ── AVISO B2B ── */
+    .aviso-b2b {
+      background: var(--gold-dim);
+      border: 1px solid rgba(212,160,23,0.25);
+      border-left: 3px solid var(--gold);
+      padding: 20px 24px;
+      margin-bottom: 48px;
+      display: flex; gap: 16px; align-items: flex-start;
     }
-    p {
-      margin-bottom: 1rem;
+
+    .aviso-b2b svg { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+
+    .aviso-b2b p { font-size: 14px; color: var(--white); line-height: 1.6; }
+    .aviso-b2b strong { color: var(--gold-light); }
+
+    /* ── SECTION BLOCK ── */
+    .termo-section {
+      margin-bottom: 48px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      overflow: hidden;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
     }
+    .termo-section.visible { opacity: 1; transform: translateY(0); }
+
+    .section-head {
+      display: flex; align-items: center; gap: 16px;
+      padding: 20px 28px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(212,160,23,0.04);
+    }
+
+    .section-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px; letter-spacing: 2px;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid rgba(212,160,23,0.25);
+      padding: 4px 10px;
+      flex-shrink: 0;
+    }
+
+    .section-head h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 17px;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .section-body { padding: 28px; }
+
+    .section-body p {
+      font-size: 15px; color: #c8c5bf;
+      line-height: 1.75; margin-bottom: 16px;
+    }
+    .section-body p:last-child { margin-bottom: 0; }
+
+    .section-body strong { color: var(--white); font-weight: 600; }
+    .section-body em { color: var(--muted); font-style: italic; }
+
+    /* ── CLAUSE LIST ── */
+    .clause-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+
+    .clause-list li {
+      display: flex; gap: 14px; align-items: flex-start;
+      font-size: 15px; color: #c8c5bf; line-height: 1.7;
+    }
+
+    .clause-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 12px;
+      letter-spacing: 1px; color: var(--gold);
+      background: var(--gold-dim);
+      padding: 2px 7px; flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .clause-list li strong { color: var(--white); }
+
+    /* ── HIGHLIGHT BOX ── */
+    .highlight-box {
+      background: rgba(212,160,23,0.05);
+      border: 1px solid rgba(212,160,23,0.2);
+      padding: 16px 20px;
+      margin-top: 20px;
+      font-size: 13px; color: var(--muted); line-height: 1.6;
+    }
+    .highlight-box strong { color: var(--gold-light); }
+
+    /* ── PAYMENT METHODS ── */
+    .payment-methods {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 16px;
+    }
+
+    .payment-tag {
+      background: var(--gold-dim);
+      border: 1px solid rgba(212,160,23,0.25);
+      color: var(--gold-light);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 13px; letter-spacing: 1px;
+      padding: 6px 14px;
+    }
+
+    /* ── ASSINATURA / RODAPÉ DO TERMO ── */
+    .termo-footer {
+      margin-top: 56px;
+      border-top: 1px solid var(--border);
+      padding-top: 40px;
+      display: flex; flex-direction: column; gap: 24px;
+    }
+
+    .termo-footer-tagline {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(20px, 3vw, 28px);
+      letter-spacing: 1.5px; color: var(--white);
+      line-height: 1.2;
+    }
+    .termo-footer-tagline span { color: var(--gold); }
+
+    .termo-footer-sub {
+      font-size: 13px; color: var(--muted); max-width: 480px; line-height: 1.6;
+    }
+
+    .btn-voltar {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--gold); color: var(--black);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 14px 28px; text-decoration: none;
+      transition: all 0.2s; align-self: flex-start;
+    }
+    .btn-voltar:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* ── PAGE FOOTER ── */
     footer {
-      margin-top: 2rem;
-      font-style: italic;
-      color: #FFD700;
-      text-align: center;
+      border-top: 1px solid var(--border);
+      padding: 28px 40px;
+      background: var(--dark);
+    }
+    .footer-inner {
+      max-width: 860px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-inner img { height: 26px; opacity: 0.6; }
+    .footer-inner span { font-size: 12px; color: var(--muted); }
+    .footer-inner a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-inner a:hover { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 13px 20px; }
+      .hero { padding: 100px 20px 50px; }
+      .content-wrap { padding: 40px 20px 60px; }
+      .section-head { padding: 16px 20px; }
+      .section-body { padding: 20px; }
+      footer { padding: 24px 20px; }
     }
   </style>
 </head>
 <body>
-  <section>
-    <h1>TERMO DE REPASSE DE VEÍCULOS – PONTO CERTO REPASSE</h1>
 
-    <h2>1. FINALIDADE E ÂMBITO DE APLICAÇÃO</h2>
-    <p>
-      O presente instrumento (“<strong>Termo</strong>”) estabelece o framework jurídico‑operacional do serviço de
-      <strong>Repasse de Veículos</strong> prestado pela <strong>Ponto Certo Repasse</strong> (“<strong>Intermediante</strong>”).
-      Seu objetivo é informar, de maneira clara e estratégica, as condições sob as quais investidores e lojistas
-      (“<strong>Adquirente</strong>”) poderão adquirir veículos destinados exclusivamente à revenda.
-    </p>
+  <!-- NAV -->
+  <nav>
+    <img class="logo" src="logo_ponto_certo.png" alt="Ponto Certo Repasse" />
+    <a href="index.html" class="btn-nav">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Voltar ao site
+    </a>
+  </nav>
 
-    <h2>2. NATUREZA DA OPERAÇÃO</h2>
-    <p>
-      <strong>2.1</strong> Este Termo rege transações <strong>business‑to‑business (B2B)</strong>. O Adquirente reconhece que
-      <strong>não</strong> atua como consumidor final, afastando‑se a incidência do Código de Defesa do Consumidor.
-    </p>
-    <p>
-      <strong>2.2</strong> O Repasse ocorre sob a lógica de giro rápido de estoque: veículos ingressam com precificação competitiva,
-      objetivando margem para recondicionamento e revenda.
-    </p>
-
-    <h2>3. DECLARAÇÕES DO ADQUIRENTE</h2>
-    <ul>
-      <li>3.1 Exerce atividade regular de compra e venda de veículos, assumindo total ciência do caráter <strong>“no‑warranty”</strong> (sem garantia) do Repasse.</li>
-      <li>3.2 Está ciente de que o veículo poderá demandar reparos mecânicos, estéticos ou documentais, ficando tais providências sob sua exclusiva responsabilidade.</li>
-      <li>3.3 Assume a transferência de propriedade em até <strong>10 (dez) dias úteis</strong> após o recebimento do <strong>Recibo de Transferência do Veículo</strong>, arcando com eventuais ônus decorrentes de atraso.</li>
-      <li>3.4 Aceita que débitos e multas anteriores, não identificados na data da consulta, serão de sua responsabilidade até o limite de <strong>R$ 500,00</strong>, respondendo o vendedor por quantias excedentes.</li>
-      <li>3.5 Reconhece que o presente Termo é irrevogável e irretratável, renunciando ao direito de arrependimento e a qualquer pretensão de desfazer o negócio por <strong>vícios ocultos</strong>.</li>
-    </ul>
-
-    <h2>4. RESPONSABILIDADES DO INTERMEDIANTE</h2>
-    <ul>
-      <li>4.1 Disponibilizar aos stakeholders as informações recebidas do vendedor, bem como avaliação visual e check‑list básico de motor e carroceria.</li>
-      <li>4.2 Agilizar o trâmite documental, liberando o veículo somente após a quitação integral.</li>
-      <li>4.3 Isentar‑se de garantias de natureza técnica, mecânica ou estrutural, bem como de eventuais divergências de quilometragem, histórico de sinistro ou restrições judiciais não apontadas pelos órgãos competentes na data da consulta.</li>
-      <li>4.4 Não se responsabilizar por logística de transporte, agindo apenas como ponte entre Adquirente e transportadora escolhida.</li>
-    </ul>
-
-    <h2>5. RESPONSABILIDADES DO VENDEDOR</h2>
-    <ul>
-      <li>5.1 Débitos, multas e tributos incidentes <strong>até a data da venda</strong>, exceto quanto ao limite de responsabilidade do Adquirente previsto na cláusula 3.4.</li>
-      <li>5.2 Regularidade e veracidade dos dados fornecidos.</li>
-    </ul>
-
-    <h2>6. CONDIÇÕES ECONÔMICAS</h2>
-    <ul>
-      <li>6.1 O valor divulgado para o veículo não inclui despesas de transporte, transferência, tributos futuros ou taxas de serviço.</li>
-      <li>6.2 Pagamentos são realizados via <strong>PIX, TED, DOC ou transferência bancária</strong> em conta indicada pela Ponto Certo Repasse.</li>
-      <li>6.3 Concluído o pagamento, considera‑se consumada a <strong>tradição</strong> do bem, encerrando‑se a responsabilidade da Intermediante, nos termos do art. 1.267 do Código Civil.</li>
-    </ul>
-
-    <h2>7. LIMITAÇÃO DE RESPONSABILIDADE</h2>
-    <ul>
-      <li>a) Danos indiretos, lucros cessantes ou perda de oportunidade;</li>
-      <li>b) Atrasos dos Correios, transportadoras ou cartórios;</li>
-      <li>c) Eventuais erros de digitação em anúncios, prevalecendo fotos e vídeos disponibilizados.</li>
-    </ul>
-
-    <footer>
-      Ponto Certo Repasse – impulsionando negócios automotivos com compliance e segurança, sem freios na sua rentabilidade.
-    </footer>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <div class="hero-label">
+        <span class="dot"></span>
+        Documento Oficial
+      </div>
+      <h1>TERMO DE REPASSE<br><span>DE VEÍCULOS</span></h1>
+      <div class="hero-meta">
+        <div class="meta-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Vigência: 2024
+        </div>
+        <div class="meta-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Relação B2B — Não se aplica o CDC
+        </div>
+        <div class="meta-item">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Irrevogável e Irretratável
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- CONTENT -->
+  <div class="content-wrap">
+
+    <!-- AVISO -->
+    <div class="aviso-b2b">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <p>Este documento é de natureza <strong>B2B (business-to-business)</strong>. Ao prosseguir com o cadastro, o Adquirente declara exercer atividade regular de compra e venda de veículos, afastando a incidência do <strong>Código de Defesa do Consumidor</strong>.</p>
+    </div>
+
+    <!-- SEÇÃO 1 -->
+    <div class="termo-section">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2>Finalidade e Âmbito de Aplicação</h2>
+      </div>
+      <div class="section-body">
+        <p>O presente instrumento (<strong>"Termo"</strong>) estabelece o framework jurídico‑operacional do serviço de <strong>Repasse de Veículos</strong> prestado pela <strong>Ponto Certo Repasse</strong> (<strong>"Intermediante"</strong>).</p>
+        <p>Seu objetivo é informar, de maneira clara e estratégica, as condições sob as quais investidores e lojistas (<strong>"Adquirente"</strong>) poderão adquirir veículos destinados exclusivamente à revenda.</p>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 2 -->
+    <div class="termo-section">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2>Natureza da Operação</h2>
+      </div>
+      <div class="section-body">
+        <ul class="clause-list">
+          <li>
+            <span class="clause-num">2.1</span>
+            <span>Este Termo rege transações <strong>business‑to‑business (B2B)</strong>. O Adquirente reconhece que <strong>não</strong> atua como consumidor final, afastando‑se a incidência do Código de Defesa do Consumidor.</span>
+          </li>
+          <li>
+            <span class="clause-num">2.2</span>
+            <span>O Repasse ocorre sob a lógica de <strong>giro rápido de estoque</strong>: veículos ingressam com precificação competitiva, objetivando margem para recondicionamento e revenda.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 3 -->
+    <div class="termo-section">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2>Declarações do Adquirente</h2>
+      </div>
+      <div class="section-body">
+        <ul class="clause-list">
+          <li>
+            <span class="clause-num">3.1</span>
+            <span>Exerce atividade regular de compra e venda de veículos, assumindo total ciência do caráter <strong>"no‑warranty"</strong> (sem garantia) do Repasse.</span>
+          </li>
+          <li>
+            <span class="clause-num">3.2</span>
+            <span>Está ciente de que o veículo poderá demandar reparos mecânicos, estéticos ou documentais, ficando tais providências sob sua <strong>exclusiva responsabilidade</strong>.</span>
+          </li>
+          <li>
+            <span class="clause-num">3.3</span>
+            <span>Assume a transferência de propriedade em até <strong>10 (dez) dias úteis</strong> após o recebimento do Recibo de Transferência do Veículo, arcando com eventuais ônus decorrentes de atraso.</span>
+          </li>
+          <li>
+            <span class="clause-num">3.4</span>
+            <span>Aceita que débitos e multas anteriores, não identificados na data da consulta, serão de sua responsabilidade até o limite de <strong>R$ 500,00</strong>, respondendo o vendedor por quantias excedentes.</span>
+          </li>
+          <li>
+            <span class="clause-num">3.5</span>
+            <span>Reconhece que o presente Termo é <strong>irrevogável e irretratável</strong>, renunciando ao direito de arrependimento e a qualquer pretensão de desfazer o negócio por vícios ocultos.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 4 -->
+    <div class="termo-section">
+      <div class="section-head">
+        <span class="section-num">04</span>
+        <h2>Responsabilidades do Intermediante</h2>
+      </div>
+      <div class="section-body">
+        <ul class="clause-list">
+          <li>
+            <span class="clause-num">4.1</span>
+            <span>Disponibilizar aos stakeholders as informações recebidas do vendedor, bem como avaliação visual e check‑list básico de motor e carroceria.</span>
+          </li>
+          <li>
+            <span class="clause-num">4.2</span>
+            <span>Agilizar o trâmite documental, liberando o veículo somente após a <strong>quitação integral</strong>.</span>
+          </li>
+          <li>
+            <span class="clause-num">4.3</span>
+            <span>Isentar‑se de garantias de natureza técnica, mecânica ou estrutural, bem como de eventuais divergências de quilometragem, histórico de sinistro ou restrições judiciais não apontadas pelos órgãos competentes na data da consulta.</span>
+          </li>
+          <li>
+            <span class="clause-num">4.4</span>
+            <span>Não se responsabilizar por logística de transporte, atuando apenas como ponte entre Adquirente e transportadora escolhida.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 5 -->
+    <div class="termo-section">
+      <div class="section-head">
+        <span class="section-num">05</span>
+        <h2>Responsabilidades do Vendedor</h2>
+      </div>
+      <div class="section-body">
+        <ul class="clause-list">
+          <li>
+            <span class="clause-num">5.1</span>
+            <span>Débitos, multas e tributos incidentes <strong>até a data da venda</strong>, exceto quanto ao limite de responsabilidade do Adquirente previsto na cláusula 3.4.</span>
+          </li>
+          <li>
+            <span class="clause-num">5.2</span>
+            <span>Regularidade e veracidade dos dados fornecidos.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 6 -->
+    <div class="termo-section">
+      <div class="section-head">
+        <span class="section-num">06</span>
+        <h2>Condições Econômicas</h2>
+      </div>
+      <div class="section-body">
+        <ul class="clause-list">
+          <li>
+            <span class="clause-num">6.1</span>
+            <span>O valor divulgado para o veículo <strong>não inclui</strong> despesas de transporte, transferência, tributos futuros ou taxas de serviço.</span>
+          </li>
+          <li>
+            <span class="clause-num">6.2</span>
+            <span>Pagamentos são realizados via:</span>
+          </li>
+        </ul>
+        <div class="payment-methods">
+          <span class="payment-tag">PIX</span>
+          <span class="payment-tag">TED</span>
+          <span class="payment-tag">DOC</span>
+          <span class="payment-tag">Transferência Bancária</span>
+        </div>
+        <div class="highlight-box" style="margin-top:20px;">
+          <strong>Cláusula 6.3 —</strong> Concluído o pagamento, considera‑se consumada a <strong>tradição</strong> do bem, encerrando‑se a responsabilidade da Intermediante, nos termos do <strong>art. 1.267 do Código Civil</strong>.
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 7 -->
+    <div class="termo-section">
+      <div class="section-head">
+        <span class="section-num">07</span>
+        <h2>Limitação de Responsabilidade</h2>
+      </div>
+      <div class="section-body">
+        <p>A Ponto Certo Repasse não se responsabiliza por:</p>
+        <ul class="clause-list" style="margin-top:16px;">
+          <li>
+            <span class="clause-num">a</span>
+            <span>Danos indiretos, lucros cessantes ou perda de oportunidade;</span>
+          </li>
+          <li>
+            <span class="clause-num">b</span>
+            <span>Atrasos dos Correios, transportadoras ou cartórios;</span>
+          </li>
+          <li>
+            <span class="clause-num">c</span>
+            <span>Eventuais erros de digitação em anúncios, <strong>prevalecendo fotos e vídeos</strong> disponibilizados.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- RODAPÉ DO TERMO -->
+    <div class="termo-footer">
+      <div>
+        <p class="termo-footer-tagline">PONTO CERTO REPASSE —<br><span>IMPULSIONANDO NEGÓCIOS AUTOMOTIVOS</span></p>
+        <p class="termo-footer-sub" style="margin-top:12px;">Com compliance e segurança, sem freios na sua rentabilidade.</p>
+      </div>
+      <a href="index.html" class="btn-voltar">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Voltar ao site
+      </a>
+    </div>
+
+  </div><!-- /content-wrap -->
+
+  <!-- PAGE FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <img src="logo_ponto_certo.png" alt="Ponto Certo Repasse" />
+      <span>© 2024 Ponto Certo Repasse. Todos os direitos reservados.</span>
+      <a href="mailto:contato@pontocertorepasse.com.br">contato@pontocertorepasse.com.br</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.termo-section').forEach((el, i) => {
+      el.style.transitionDelay = (i * 0.07) + 's';
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
