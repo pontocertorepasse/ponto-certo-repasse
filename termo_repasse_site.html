@@ -584,16 +584,16 @@
     // ── LIVE MEMBER COUNT ──
     const el = document.getElementById('liveCount');
     if (el) {
-      const stored = localStorage.getItem('pillCount');
+      const stored = sessionStorage.getItem('pillCount');
       const start = stored ? parseInt(stored) : Math.floor(Math.random() * (168 - 52 + 1)) + 52;
       el.textContent = start;
-      localStorage.setItem('pillCount', start);
+      sessionStorage.setItem('pillCount', start);
       setInterval(() => {
         const delta = Math.floor(Math.random() * 5) - 2;
         const current = parseInt(el.textContent);
         const next = Math.max(52, Math.min(168, current + delta));
         el.textContent = next;
-        localStorage.setItem('pillCount', next);
+        sessionStorage.setItem('pillCount', next);
       }, 2800);
     }
   </script>
