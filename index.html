@@ -977,6 +977,9 @@
         sessionStorage.setItem('pillCount', next);
       }, 2800);
     }
+    // ── MODAL OPEN/CLOSE ──
+    const modal = document.getElementById('modalTermo');
+    const abrirModal = e => { e.preventDefault(); modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; };
     const fecharModal = () => { modal.style.display = 'none'; document.body.style.overflow = ''; };
 
     document.getElementById('btnGrupoNav').addEventListener('click', abrirModal);
