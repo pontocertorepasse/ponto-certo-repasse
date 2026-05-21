@@ -578,7 +578,7 @@
   <nav>
     <div class="nav-pill">
       <span class="pill-dot"></span>
-      <span class="pill-text"><strong id="liveCount">538</strong> membros online</span>
+      <span class="pill-text"><strong id="liveCount">97</strong> membros online</span>
     </div>
     <div class="nav-right">
       <div class="nav-badge">
@@ -834,15 +834,15 @@
   <script>
 
     // ── LIVE MEMBER COUNT ──
-    const baseCount = 538;
+
     const el = document.getElementById('liveCount');
     if (el) {
       setInterval(() => {
-        const delta = Math.floor(Math.random() * 3) - 1; // -1, 0 ou +1
+        const delta = Math.floor(Math.random() * 5) - 2; // -2 a +2
         const current = parseInt(el.textContent);
-        const next = Math.max(530, Math.min(549, current + delta));
+        const next = Math.max(52, Math.min(168, current + delta));
         el.textContent = next;
-      }, 4000);
+      }, 2800);
     }
 
     // ── MODAL OPEN/CLOSE ──
