@@ -331,7 +331,7 @@
   <nav>
     <div class="nav-pill">
       <span class="pill-dot"></span>
-      <span class="pill-text"><strong id="liveCount">97</strong> membros online</span>
+      <span class="pill-text"><strong id="liveCount">0</strong> membros online</span>
     </div>
     <a href="index.html" class="btn-nav">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -584,11 +584,16 @@
     // ── LIVE MEMBER COUNT ──
     const el = document.getElementById('liveCount');
     if (el) {
+      const stored = localStorage.getItem('pillCount');
+      const start = stored ? parseInt(stored) : Math.floor(Math.random() * (168 - 52 + 1)) + 52;
+      el.textContent = start;
+      localStorage.setItem('pillCount', start);
       setInterval(() => {
-        const delta = Math.floor(Math.random() * 5) - 2; // -2 a +2
+        const delta = Math.floor(Math.random() * 5) - 2;
         const current = parseInt(el.textContent);
         const next = Math.max(52, Math.min(168, current + delta));
         el.textContent = next;
+        localStorage.setItem('pillCount', next);
       }, 2800);
     }
   </script>
