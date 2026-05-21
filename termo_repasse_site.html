@@ -62,6 +62,25 @@
       text-decoration: none; transition: all 0.2s;
     }
     .btn-nav:hover { background: var(--gold-dim); border-color: var(--gold); }
+
+    /* ── NAV BRAND ── */
+    .nav-brand {
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .nav-brand-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 0 rgba(212,160,23,0.5);
+      animation: sonar 2.2s ease-out infinite;
+      flex-shrink: 0;
+    }
+    .nav-brand-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .nav-brand-text strong { color: var(--gold); font-weight: 700; }
+
     /* ── NAV PILL ── */
     .nav-pill {
       display: inline-flex; align-items: center; gap: 9px;
@@ -329,9 +348,9 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-pill">
-      <span class="pill-dot"></span>
-      <span class="pill-text"><strong id="liveCount">0</strong> membros online</span>
+    <div class="nav-brand">
+      <span class="nav-brand-dot"></span>
+      <span class="nav-brand-text">PONTO CERTO <strong>REPASSE</strong></span>
     </div>
     <a href="index.html" class="btn-nav">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
