@@ -83,6 +83,33 @@
     }
     .nav-badge img { height: 32px; opacity: 0.85; }
 
+
+    /* ── NAV PILL ── */
+    .nav-pill {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: rgba(34,197,94,0.07);
+      border: 1px solid rgba(34,197,94,0.25);
+      padding: 7px 14px;
+      border-radius: 999px;
+    }
+    .pill-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 0 rgba(34,197,94,0.5);
+      animation: sonar 1.8s ease-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes sonar {
+      0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); }
+      70%  { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+      100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+    }
+    .pill-text {
+      font-size: 12px; color: rgba(245,243,238,0.7);
+      font-weight: 400; white-space: nowrap; letter-spacing: 0.2px;
+    }
+    .pill-text strong { color: #fff; font-weight: 700; }
+
     .btn-nav {
       background: var(--gold);
       color: var(--black);
@@ -518,6 +545,8 @@
     @media (max-width: 900px) {
       nav { padding: 13px 20px; }
       .nav-badge { display: none; }
+      .pill-text { font-size: 11px; }
+      .nav-pill { padding: 6px 11px; }
       .hero { padding: 100px 20px 60px; }
       .hero-stats { flex-wrap: wrap; gap: 20px; }
       .stat { border-right: none; padding-right: 0; margin-right: 0; border-bottom: 1px solid var(--border); padding-bottom: 14px; }
@@ -547,7 +576,10 @@
 
   <!-- NAV -->
   <nav>
-    <div><!-- espaço vazio para alinhar botão à direita --></div>
+    <div class="nav-pill">
+      <span class="pill-dot"></span>
+      <span class="pill-text"><strong id="liveCount">538</strong> membros online</span>
+    </div>
     <div class="nav-right">
       <div class="nav-badge">
         <img src="logo_cbrav.png" alt="CBRAV" />
@@ -800,6 +832,19 @@
 
   <!-- SCRIPTS -->
   <script>
+
+    // ── LIVE MEMBER COUNT ──
+    const baseCount = 538;
+    const el = document.getElementById('liveCount');
+    if (el) {
+      setInterval(() => {
+        const delta = Math.floor(Math.random() * 3) - 1; // -1, 0 ou +1
+        const current = parseInt(el.textContent);
+        const next = Math.max(530, Math.min(549, current + delta));
+        el.textContent = next;
+      }, 4000);
+    }
+
     // ── MODAL OPEN/CLOSE ──
     const modal = document.getElementById('modalTermo');
     const abrirModal = e => { e.preventDefault(); modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; };
