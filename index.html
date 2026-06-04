@@ -516,6 +516,19 @@
     .form-check-label a { color: var(--gold); text-decoration: none; }
     .form-check-label a:hover { text-decoration: underline; }
 
+    .lgpd-notice {
+      display: flex; align-items: flex-start; gap: 8px;
+      background: rgba(212,160,23,0.05);
+      border: 1px solid rgba(212,160,23,0.15);
+      border-left: 2px solid var(--gold);
+      padding: 10px 14px;
+      margin-bottom: 18px;
+      border-radius: 0;
+    }
+    .lgpd-notice svg { color: var(--gold); flex-shrink: 0; margin-top: 2px; }
+    .lgpd-notice span { font-size: 11px; color: var(--muted); line-height: 1.6; text-align: justify; }
+    .lgpd-notice strong { color: var(--white); font-weight: 600; }
+
     .btn-submit {
       width: 100%;
       background: var(--gold); color: var(--black);
@@ -957,6 +970,10 @@
             <label class="form-check-label" for="termoCheck">
               Li e concordo com o <a href="termo_repasse_site.html" target="_blank">Termo de Repasse</a>. Declaro ser lojista ou investidor no mercado automotivo.
             </label>
+          </div>
+          <div class="lgpd-notice">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Seus dados são coletados exclusivamente para cadastro interno da <strong>Ponto Certo Repasse</strong> e liberação de acesso ao grupo. Não compartilhamos suas informações com terceiros. Em conformidade com a <strong>Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)</strong>.</span>
           </div>
           <button class="btn-submit" type="submit" id="btnEnviar">Enviar e Entrar no Grupo</button>
           <button type="button" id="cancelar">Cancelar</button>
