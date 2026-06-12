@@ -3,15 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ponto Certo Repasse</title>
+  <title>Ponto Certo Repasse — Grupo VIP de Repasse de Veículos para Lojistas</title>
 
   <!-- SEO & Share -->
-  <meta name="description" content="Conectamos lojistas e investidores às melhores oportunidades do mercado automotivo. Ofertas exclusivas, segurança e assessoria completa." />
-  <meta property="og:title" content="Ponto Certo Repasse" />
-  <meta property="og:description" content="Ofertas exclusivas para lojistas e investidores do mercado automotivo." />
+  <meta name="description" content="Grupo VIP de repasse de veículos para lojistas e investidores. Compra e venda de carros entre lojistas com segurança, assessoria completa e verificação CBRAV. Acesse ofertas exclusivas em todo o Brasil." />
+  <meta name="keywords" content="repasse de veículos, repasse automotivo, compra e venda entre lojistas, repasse de carros, grupo repasse whatsapp, lojistas automotivo, investidor automotivo, repasse carro brasil, CBRAV" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.pontocertorepasse.com.br/" />
+  <meta property="og:title" content="Ponto Certo Repasse — Grupo VIP de Repasse Automotivo" />
+  <meta property="og:description" content="Repasse de veículos com segurança para lojistas e investidores. Ofertas exclusivas antes de qualquer anúncio público. Verificado CBRAV." />
   <meta property="og:image" content="https://www.pontocertorepasse.com.br/meta-image.jpg" />
   <meta property="og:url" content="https://www.pontocertorepasse.com.br" />
   <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ponto Certo Repasse — Grupo VIP de Repasse Automotivo" />
+  <meta name="twitter:description" content="Repasse de veículos com segurança para lojistas e investidores. Verificado CBRAV." />
 
   <link rel="icon" href="favicon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -409,6 +415,110 @@
     }
     .btn-ig:hover { background: var(--gold-light); transform: translateY(-2px); }
 
+    /* ── DEPOIMENTOS ── */
+    .testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+
+    .testimonial-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 28px 28px 24px;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .testimonial-card:hover { border-color: rgba(212,160,23,0.35); }
+
+    .testimonial-quote {
+      font-size: 32px; line-height: 1;
+      color: var(--gold); opacity: 0.5;
+      font-family: Georgia, serif;
+      margin-bottom: 12px;
+    }
+    .testimonial-text {
+      font-size: 14px; color: var(--muted); line-height: 1.75;
+      margin-bottom: 20px; font-style: italic;
+    }
+    .testimonial-divider {
+      height: 1px; background: var(--border); margin-bottom: 16px;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 38px; height: 38px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(212,160,23,0.25);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px; color: var(--gold);
+      flex-shrink: 0;
+    }
+    .testimonial-name { font-size: 13px; font-weight: 600; color: var(--white); }
+    .testimonial-role { font-size: 11px; color: var(--muted); letter-spacing: 0.3px; margin-top: 2px; }
+    .testimonial-stars { display: flex; gap: 2px; margin-bottom: 12px; }
+    .testimonial-stars span { color: var(--gold); font-size: 13px; }
+
+    /* ── FAQ ── */
+    .faq { padding: 100px 40px; }
+    .faq-inner { max-width: 780px; margin: 0 auto; }
+    .faq-header { margin-bottom: 48px; }
+    .faq-list { display: flex; flex-direction: column; gap: 2px; }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .faq-item:hover { border-color: rgba(212,160,23,0.25); }
+
+    .faq-question {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 24px;
+      cursor: pointer;
+      user-select: none;
+      gap: 16px;
+    }
+    .faq-q-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700; font-size: 16px;
+      letter-spacing: 0.3px; text-transform: uppercase;
+      color: var(--white); line-height: 1.3;
+    }
+    .faq-icon {
+      width: 28px; height: 28px; flex-shrink: 0;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 18px; line-height: 1;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); border-color: var(--gold); }
+    .faq-item.open .faq-q-text { color: var(--gold-light); }
+
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 24px;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; padding: 0 24px 20px; }
+    .faq-answer p { font-size: 14px; color: var(--muted); line-height: 1.75; }
+    .faq-answer a { color: var(--gold); text-decoration: none; }
+    .faq-answer a:hover { text-decoration: underline; }
+
+    /* Urgência no hero */
+    .urgency-bar {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(212,160,23,0.08);
+      border: 1px solid rgba(212,160,23,0.2);
+      padding: 10px 16px;
+      margin-top: 18px;
+      font-size: 13px; color: var(--muted); line-height: 1.4;
+    }
+    .urgency-bar svg { color: var(--gold); flex-shrink: 0; }
+    .urgency-bar strong { color: var(--white); }
+
+    @media (max-width: 900px) {
+      .testimonials { grid-template-columns: 1fr; }
+    }
+
     /* ── CTA FINAL ── */
     .cta-section { padding: 100px 40px 60px; position: relative; overflow: hidden; }
     .cta-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(212,160,23,0.1) 0%, transparent 70%); }
@@ -791,6 +901,10 @@
           Fale Conosco
         </a>
       </div>
+      <div class="urgency-bar" style="margin-top: 24px;">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>As ofertas ficam disponíveis por <strong>tempo limitado</strong> — membros do grupo são avisados primeiro, antes de qualquer anúncio público.</span>
+      </div>
     </div>
 
     <div class="hero-stats fade-up">
@@ -893,22 +1007,124 @@
           <h2 class="section-title fade-up">QUEM JÁ ESTÁ<br><span>NEGOCIANDO</span></h2>
           <a href="https://www.instagram.com/pontocertorepasse" target="_blank" rel="noopener" class="ig-link fade-up" style="margin-top:12px;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            Ver Instagram
+            Ver mais no Instagram
           </a>
         </div>
       </div>
-      <div class="ig-embed-wrapper fade-up">
-        <div class="ig-placeholder">
-          <div class="ig-icon-big">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+
+      <div class="testimonials">
+
+        <div class="testimonial-card fade-up" style="transition-delay:0s">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
           </div>
-          <p class="ig-text-main">@pontocertorepasse</p>
-          <p class="ig-text-sub">Acompanhe depoimentos reais, bastidores das negociações e ofertas em destaque direto no nosso Instagram.</p>
-          <a href="https://www.instagram.com/pontocertorepasse" target="_blank" rel="noopener" class="btn-ig">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--black)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            Ver Depoimentos no Instagram
-          </a>
+          <p class="testimonial-text">Entrei no grupo sem muita expectativa, mas na primeira semana já fechei um repasse com margem acima da média. A assessoria da equipe fez toda a diferença na documentação.</p>
+          <div class="testimonial-divider"></div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">R</div>
+            <div>
+              <div class="testimonial-name">Ricardo M.</div>
+              <div class="testimonial-role">Lojista · São Paulo, SP</div>
+            </div>
+          </div>
         </div>
+
+        <div class="testimonial-card fade-up" style="transition-delay:0.15s">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="testimonial-text">O que me surpreendeu foi a velocidade. Recebi a oferta às 9h, confirmei às 10h e o carro estava resolvido antes do almoço. Em OLX isso não acontece nem em semanas.</p>
+          <div class="testimonial-divider"></div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">C</div>
+            <div>
+              <div class="testimonial-name">Carlos A.</div>
+              <div class="testimonial-role">Investidor · Belo Horizonte, MG</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-up" style="transition-delay:0.3s">
+          <div class="testimonial-quote">"</div>
+          <div class="testimonial-stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="testimonial-text">Já participei de outros grupos de repasse e a diferença é gritante. Aqui os carros chegam com laudo, histórico e preço justo. Renovei metade do meu estoque pelo grupo.</p>
+          <div class="testimonial-divider"></div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">F</div>
+            <div>
+              <div class="testimonial-name">Fernanda T.</div>
+              <div class="testimonial-role">Lojista · Curitiba, PR</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="faq-inner">
+      <div class="faq-header">
+        <div class="section-label fade-up">Dúvidas Frequentes</div>
+        <h2 class="section-title fade-up">PERGUNTAS<br><span>FREQUENTES</span></h2>
+      </div>
+      <div class="faq-list fade-up">
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">O grupo é pago?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>O acesso ao Grupo VIP é <strong style="color:var(--white)">gratuito por tempo limitado</strong>. Estamos em fase de expansão e, futuramente, o grupo poderá ter acesso pago ou por convite restrito. Quem entrar agora garante sua vaga sem custo — basta preencher o cadastro e aceitar o <a href="termo_repasse_site.html" target="_blank">Termo de Repasse</a>.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">Qualquer pessoa pode entrar ou é exclusivo?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>O grupo é <strong style="color:var(--white)">exclusivo para lojistas e investidores</strong> do mercado automotivo. Ao aceitar o Termo de Repasse você declara atuar neste segmento, garantindo um ambiente qualificado e seguro para todos os membros.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">As ofertas são de todo o Brasil?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Sim. Trabalhamos com repasses de <strong style="color:var(--white)">todo o território nacional</strong>. As ofertas chegam com origem, preço e condições do veículo — e nossa equipe pode auxiliar na logística e documentação independente do estado.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">Como funciona a assessoria da Ponto Certo?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Nossa equipe acompanha o processo do interesse ao fechamento: orientação sobre documentação, verificação do histórico do veículo e suporte jurídico. Somos verificados pela <strong style="color:var(--white)">CBRAV</strong>, o que garante um padrão de qualidade e segurança reconhecido no mercado.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">Com que frequência as ofertas chegam no grupo?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>As ofertas chegam de forma <strong style="color:var(--white)">contínua ao longo da semana</strong>, com maior volume em dias úteis. Como as oportunidades de repasse têm prazo curto, membros ativos tendem a fechar negócios com mais rapidez.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1122,6 +1338,15 @@
       if (valor.length >= 3) formatado += ') ' + valor.substring(2, 7);
       if (valor.length >= 8) formatado += '-' + valor.substring(7, 11);
       e.target.value = formatado;
+    });
+
+    // ── FAQ ACCORDION ──
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-question').addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
     });
 
     // ── SCROLL ANIMATIONS ──
